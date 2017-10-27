@@ -2,10 +2,10 @@
 
 ## Demos
 
-* [Basic.elm](https://lucamug.github.io/elm-style-elements-examples/html/Basic.js)
-* [Form.elm](https://lucamug.github.io/elm-style-elements-examples/html/Form.js)
-* [Chat.elm](https://lucamug.github.io/elm-style-elements-examples/html/Chat.js)
-* [StyleAnimation.elm](https://lucamug.github.io/elm-style-elements-examples/html/StyleAnimation.js)
+* [Basic.elm](https://lucamug.github.io/elm-style-elements-examples/html/Basic.html)
+* [Form.elm](https://lucamug.github.io/elm-style-elements-examples/html/Form.html)
+* [Chat.elm](https://lucamug.github.io/elm-style-elements-examples/html/Chat.html)
+* [StyleAnimation.elm](https://lucamug.github.io/elm-style-elements-examples/html/StyleAnimation.html)
 
 ## Development
 
