@@ -23660,55 +23660,140 @@ var _mdgriffith$style_elements$Style_Font$typeface = function (families) {
 	return _mdgriffith$style_elements$Style_Internal_Model$FontFamily(families);
 };
 
-var _mdgriffith$style_elements$Style_Transition$transitions = function (trans) {
-	return _mdgriffith$style_elements$Style_Internal_Model$Transitions(
-		A2(_elm_lang$core$List$map, _mdgriffith$style_elements$Style_Internal_Model$Transition, trans));
+var _mdgriffith$style_elements$Style_Shadow$drop = function (_p0) {
+	var _p1 = _p0;
+	return _mdgriffith$style_elements$Style_Internal_Model$Filters(
+		{
+			ctor: '::',
+			_0: _mdgriffith$style_elements$Style_Internal_Model$DropShadow(
+				{offset: _p1.offset, size: 0, blur: _p1.blur, color: _p1.color}),
+			_1: {ctor: '[]'}
+		});
 };
-var _mdgriffith$style_elements$Style_Transition$performant = _mdgriffith$style_elements$Style_Internal_Model$Transitions(
+var _mdgriffith$style_elements$Style_Shadow$text = function (_p2) {
+	var _p3 = _p2;
+	return _mdgriffith$style_elements$Style_Internal_Model$Shadows(
+		{
+			ctor: '::',
+			_0: _mdgriffith$style_elements$Style_Internal_Model$ShadowModel(
+				{kind: 'text', offset: _p3.offset, size: 0, blur: _p3.blur, color: _p3.color}),
+			_1: {ctor: '[]'}
+		});
+};
+var _mdgriffith$style_elements$Style_Shadow$inset = function (_p4) {
+	var _p5 = _p4;
+	return _mdgriffith$style_elements$Style_Internal_Model$Shadows(
+		{
+			ctor: '::',
+			_0: _mdgriffith$style_elements$Style_Internal_Model$ShadowModel(
+				{kind: 'inset', offset: _p5.offset, size: _p5.size, blur: _p5.blur, color: _p5.color}),
+			_1: {ctor: '[]'}
+		});
+};
+var _mdgriffith$style_elements$Style_Shadow$boxHelper = function (_p6) {
+	var _p7 = _p6;
+	return _mdgriffith$style_elements$Style_Internal_Model$ShadowModel(
+		{kind: 'box', offset: _p7.offset, size: _p7.size, blur: _p7.blur, color: _p7.color});
+};
+var _mdgriffith$style_elements$Style_Shadow$box = function (shadow) {
+	return _mdgriffith$style_elements$Style_Internal_Model$Shadows(
+		{
+			ctor: '::',
+			_0: _mdgriffith$style_elements$Style_Shadow$boxHelper(shadow),
+			_1: {ctor: '[]'}
+		});
+};
+var _mdgriffith$style_elements$Style_Shadow$deep = _mdgriffith$style_elements$Style_Shadow$box(
+	{
+		color: A4(_elm_lang$core$Color$rgba, 0, 0, 0, 0.2),
+		offset: {ctor: '_Tuple2', _0: 0, _1: 14},
+		blur: 20,
+		size: -12
+	});
+var _mdgriffith$style_elements$Style_Shadow$simple = _mdgriffith$style_elements$Style_Internal_Model$Shadows(
 	{
 		ctor: '::',
-		_0: _mdgriffith$style_elements$Style_Internal_Model$Transition(
+		_0: _mdgriffith$style_elements$Style_Shadow$boxHelper(
 			{
-				delay: 0,
-				duration: 130 * _elm_lang$core$Time$millisecond,
-				easing: 'ease',
-				props: {
-					ctor: '::',
-					_0: 'transform',
-					_1: {
-						ctor: '::',
-						_0: 'filter',
-						_1: {
-							ctor: '::',
-							_0: 'opacity',
-							_1: {ctor: '[]'}
-						}
-					}
-				}
+				color: A4(_elm_lang$core$Color$rgba, 0, 0, 0, 0.5),
+				offset: {ctor: '_Tuple2', _0: 0, _1: 29},
+				blur: 32,
+				size: -20
 			}),
-		_1: {ctor: '[]'}
+		_1: {
+			ctor: '::',
+			_0: _mdgriffith$style_elements$Style_Shadow$boxHelper(
+				{
+					color: A4(_elm_lang$core$Color$rgba, 0, 0, 0, 0.25),
+					offset: {ctor: '_Tuple2', _0: 0, _1: 4},
+					blur: 11,
+					size: -3
+				}),
+			_1: {ctor: '[]'}
+		}
 	});
-var _mdgriffith$style_elements$Style_Transition$all = _mdgriffith$style_elements$Style_Internal_Model$Transitions(
-	{
-		ctor: '::',
-		_0: _mdgriffith$style_elements$Style_Internal_Model$Transition(
+var _mdgriffith$style_elements$Style_Shadow$textGlow = F2(
+	function (color, size) {
+		return _mdgriffith$style_elements$Style_Internal_Model$Shadows(
 			{
-				delay: 0,
-				duration: 130 * _elm_lang$core$Time$millisecond,
-				easing: 'ease',
-				props: {
-					ctor: '::',
-					_0: 'all',
-					_1: {ctor: '[]'}
-				}
-			}),
-		_1: {ctor: '[]'}
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Style_Internal_Model$ShadowModel(
+					{
+						kind: 'text',
+						offset: {ctor: '_Tuple2', _0: 0, _1: 0},
+						size: size,
+						blur: size * 2,
+						color: color
+					}),
+				_1: {ctor: '[]'}
+			});
 	});
-var _mdgriffith$style_elements$Style_Transition$Transition = F4(
-	function (a, b, c, d) {
-		return {delay: a, duration: b, easing: c, props: d};
+var _mdgriffith$style_elements$Style_Shadow$innerGlow = F2(
+	function (color, size) {
+		return _mdgriffith$style_elements$Style_Internal_Model$Shadows(
+			{
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Style_Internal_Model$ShadowModel(
+					{
+						kind: 'inset',
+						offset: {ctor: '_Tuple2', _0: 0, _1: 0},
+						size: size,
+						blur: size * 2,
+						color: color
+					}),
+				_1: {ctor: '[]'}
+			});
+	});
+var _mdgriffith$style_elements$Style_Shadow$glow = F2(
+	function (color, size) {
+		return _mdgriffith$style_elements$Style_Internal_Model$Shadows(
+			{
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Style_Internal_Model$ShadowModel(
+					{
+						kind: 'box',
+						offset: {ctor: '_Tuple2', _0: 0, _1: 0},
+						size: size,
+						blur: size * 2,
+						color: color
+					}),
+				_1: {ctor: '[]'}
+			});
 	});
 
+var _lucamug$elm_style_elements_examples$Main$format = {
+	ctor: '::',
+	_0: _mdgriffith$style_elements$Element_Attributes$center,
+	_1: {
+		ctor: '::',
+		_0: _mdgriffith$style_elements$Element_Attributes$width(_mdgriffith$style_elements$Element_Attributes$fill),
+		_1: {
+			ctor: '::',
+			_0: _mdgriffith$style_elements$Element_Attributes$padding(10),
+			_1: {ctor: '[]'}
+		}
+	}
+};
 var _lucamug$elm_style_elements_examples$Main$sansSerif = {
 	ctor: '::',
 	_0: _mdgriffith$style_elements$Style_Font$font('helvetica'),
@@ -23722,495 +23807,12 @@ var _lucamug$elm_style_elements_examples$Main$sansSerif = {
 		}
 	}
 };
-var _lucamug$elm_style_elements_examples$Main_ops = _lucamug$elm_style_elements_examples$Main_ops || {};
-_lucamug$elm_style_elements_examples$Main_ops['=>'] = F2(
-	function (v0, v1) {
-		return {ctor: '_Tuple2', _0: v0, _1: v1};
-	});
-var _lucamug$elm_style_elements_examples$Main$Title = {ctor: 'Title'};
+var _lucamug$elm_style_elements_examples$Main$Example5 = {ctor: 'Example5'};
 var _lucamug$elm_style_elements_examples$Main$Example4 = {ctor: 'Example4'};
 var _lucamug$elm_style_elements_examples$Main$Example3 = {ctor: 'Example3'};
 var _lucamug$elm_style_elements_examples$Main$Example2 = {ctor: 'Example2'};
 var _lucamug$elm_style_elements_examples$Main$Example1 = {ctor: 'Example1'};
-var _lucamug$elm_style_elements_examples$Main$Label = {ctor: 'Label'};
-var _lucamug$elm_style_elements_examples$Main$Container = {ctor: 'Container'};
-var _lucamug$elm_style_elements_examples$Main$Box = {ctor: 'Box'};
-var _lucamug$elm_style_elements_examples$Main$viewRowLayouts = {
-	ctor: '::',
-	_0: A3(
-		_mdgriffith$style_elements$Element$el,
-		_lucamug$elm_style_elements_examples$Main$Label,
-		{ctor: '[]'},
-		_mdgriffith$style_elements$Element$text('Here is a Row Layout')),
-	_1: {
-		ctor: '::',
-		_0: A3(
-			_mdgriffith$style_elements$Element$row,
-			_lucamug$elm_style_elements_examples$Main$Container,
-			{
-				ctor: '::',
-				_0: A2(_mdgriffith$style_elements$Element_Attributes$spacingXY, 20, 20),
-				_1: {ctor: '[]'}
-			},
-			{
-				ctor: '::',
-				_0: A3(
-					_mdgriffith$style_elements$Element$el,
-					_lucamug$elm_style_elements_examples$Main$Box,
-					{
-						ctor: '::',
-						_0: _mdgriffith$style_elements$Element_Attributes$width(
-							_mdgriffith$style_elements$Element_Attributes$px(100)),
-						_1: {
-							ctor: '::',
-							_0: _mdgriffith$style_elements$Element_Attributes$height(
-								_mdgriffith$style_elements$Element_Attributes$px(100)),
-							_1: {ctor: '[]'}
-						}
-					},
-					_mdgriffith$style_elements$Element$empty),
-				_1: {
-					ctor: '::',
-					_0: A3(
-						_mdgriffith$style_elements$Element$el,
-						_lucamug$elm_style_elements_examples$Main$Box,
-						{
-							ctor: '::',
-							_0: _mdgriffith$style_elements$Element_Attributes$width(
-								_mdgriffith$style_elements$Element_Attributes$px(100)),
-							_1: {
-								ctor: '::',
-								_0: _mdgriffith$style_elements$Element_Attributes$height(
-									_mdgriffith$style_elements$Element_Attributes$px(100)),
-								_1: {ctor: '[]'}
-							}
-						},
-						_mdgriffith$style_elements$Element$empty),
-					_1: {
-						ctor: '::',
-						_0: A3(
-							_mdgriffith$style_elements$Element$el,
-							_lucamug$elm_style_elements_examples$Main$Box,
-							{
-								ctor: '::',
-								_0: _mdgriffith$style_elements$Element_Attributes$width(
-									_mdgriffith$style_elements$Element_Attributes$px(100)),
-								_1: {
-									ctor: '::',
-									_0: _mdgriffith$style_elements$Element_Attributes$height(
-										_mdgriffith$style_elements$Element_Attributes$px(100)),
-									_1: {ctor: '[]'}
-								}
-							},
-							_mdgriffith$style_elements$Element$empty),
-						_1: {ctor: '[]'}
-					}
-				}
-			}),
-		_1: {
-			ctor: '::',
-			_0: A3(
-				_mdgriffith$style_elements$Element$el,
-				_lucamug$elm_style_elements_examples$Main$Label,
-				{ctor: '[]'},
-				_mdgriffith$style_elements$Element$text('You can Align Children Individually')),
-			_1: {
-				ctor: '::',
-				_0: A3(
-					_mdgriffith$style_elements$Element$row,
-					_lucamug$elm_style_elements_examples$Main$Container,
-					{
-						ctor: '::',
-						_0: A2(_mdgriffith$style_elements$Element_Attributes$spacingXY, 20, 20),
-						_1: {
-							ctor: '::',
-							_0: _mdgriffith$style_elements$Element_Attributes$height(
-								_mdgriffith$style_elements$Element_Attributes$px(400)),
-							_1: {ctor: '[]'}
-						}
-					},
-					{
-						ctor: '::',
-						_0: A3(
-							_mdgriffith$style_elements$Element$el,
-							_lucamug$elm_style_elements_examples$Main$Box,
-							{
-								ctor: '::',
-								_0: _mdgriffith$style_elements$Element_Attributes$width(
-									_mdgriffith$style_elements$Element_Attributes$px(100)),
-								_1: {
-									ctor: '::',
-									_0: _mdgriffith$style_elements$Element_Attributes$height(
-										_mdgriffith$style_elements$Element_Attributes$px(100)),
-									_1: {
-										ctor: '::',
-										_0: _mdgriffith$style_elements$Element_Attributes$alignTop,
-										_1: {ctor: '[]'}
-									}
-								}
-							},
-							_mdgriffith$style_elements$Element$text('top')),
-						_1: {
-							ctor: '::',
-							_0: A3(
-								_mdgriffith$style_elements$Element$el,
-								_lucamug$elm_style_elements_examples$Main$Box,
-								{
-									ctor: '::',
-									_0: _mdgriffith$style_elements$Element_Attributes$width(
-										_mdgriffith$style_elements$Element_Attributes$px(100)),
-									_1: {
-										ctor: '::',
-										_0: _mdgriffith$style_elements$Element_Attributes$height(
-											_mdgriffith$style_elements$Element_Attributes$px(100)),
-										_1: {
-											ctor: '::',
-											_0: _mdgriffith$style_elements$Element_Attributes$verticalCenter,
-											_1: {ctor: '[]'}
-										}
-									}
-								},
-								_mdgriffith$style_elements$Element$text('vcenter')),
-							_1: {
-								ctor: '::',
-								_0: A3(
-									_mdgriffith$style_elements$Element$el,
-									_lucamug$elm_style_elements_examples$Main$Box,
-									{
-										ctor: '::',
-										_0: _mdgriffith$style_elements$Element_Attributes$width(
-											_mdgriffith$style_elements$Element_Attributes$px(100)),
-										_1: {
-											ctor: '::',
-											_0: _mdgriffith$style_elements$Element_Attributes$height(
-												_mdgriffith$style_elements$Element_Attributes$px(100)),
-											_1: {
-												ctor: '::',
-												_0: _mdgriffith$style_elements$Element_Attributes$alignBottom,
-												_1: {ctor: '[]'}
-											}
-										}
-									},
-									_mdgriffith$style_elements$Element$text('bottom')),
-								_1: {ctor: '[]'}
-							}
-						}
-					}),
-				_1: {
-					ctor: '::',
-					_0: A3(
-						_mdgriffith$style_elements$Element$el,
-						_lucamug$elm_style_elements_examples$Main$Label,
-						{ctor: '[]'},
-						_mdgriffith$style_elements$Element$text('Or you can set the alignment for an entire layout.')),
-					_1: {
-						ctor: '::',
-						_0: A3(
-							_mdgriffith$style_elements$Element$row,
-							_lucamug$elm_style_elements_examples$Main$Container,
-							{
-								ctor: '::',
-								_0: A2(_mdgriffith$style_elements$Element_Attributes$spacingXY, 20, 20),
-								_1: {
-									ctor: '::',
-									_0: _mdgriffith$style_elements$Element_Attributes$alignRight,
-									_1: {ctor: '[]'}
-								}
-							},
-							{
-								ctor: '::',
-								_0: A3(
-									_mdgriffith$style_elements$Element$el,
-									_lucamug$elm_style_elements_examples$Main$Box,
-									{
-										ctor: '::',
-										_0: _mdgriffith$style_elements$Element_Attributes$width(
-											_mdgriffith$style_elements$Element_Attributes$px(100)),
-										_1: {
-											ctor: '::',
-											_0: _mdgriffith$style_elements$Element_Attributes$height(
-												_mdgriffith$style_elements$Element_Attributes$px(100)),
-											_1: {ctor: '[]'}
-										}
-									},
-									_mdgriffith$style_elements$Element$empty),
-								_1: {
-									ctor: '::',
-									_0: A3(
-										_mdgriffith$style_elements$Element$el,
-										_lucamug$elm_style_elements_examples$Main$Box,
-										{
-											ctor: '::',
-											_0: _mdgriffith$style_elements$Element_Attributes$width(
-												_mdgriffith$style_elements$Element_Attributes$px(100)),
-											_1: {
-												ctor: '::',
-												_0: _mdgriffith$style_elements$Element_Attributes$height(
-													_mdgriffith$style_elements$Element_Attributes$px(100)),
-												_1: {ctor: '[]'}
-											}
-										},
-										_mdgriffith$style_elements$Element$empty),
-									_1: {
-										ctor: '::',
-										_0: A3(
-											_mdgriffith$style_elements$Element$el,
-											_lucamug$elm_style_elements_examples$Main$Box,
-											{
-												ctor: '::',
-												_0: _mdgriffith$style_elements$Element_Attributes$width(
-													_mdgriffith$style_elements$Element_Attributes$px(100)),
-												_1: {
-													ctor: '::',
-													_0: _mdgriffith$style_elements$Element_Attributes$height(
-														_mdgriffith$style_elements$Element_Attributes$px(100)),
-													_1: {ctor: '[]'}
-												}
-											},
-											_mdgriffith$style_elements$Element$empty),
-										_1: {ctor: '[]'}
-									}
-								}
-							}),
-						_1: {ctor: '[]'}
-					}
-				}
-			}
-		}
-	}
-};
-var _lucamug$elm_style_elements_examples$Main$viewGridLayout = {
-	ctor: '::',
-	_0: A3(
-		_mdgriffith$style_elements$Element$el,
-		_lucamug$elm_style_elements_examples$Main$Label,
-		{ctor: '[]'},
-		_mdgriffith$style_elements$Element$text('Grid Layout')),
-	_1: {
-		ctor: '::',
-		_0: A3(
-			_mdgriffith$style_elements$Element$grid,
-			_lucamug$elm_style_elements_examples$Main$Container,
-			{
-				ctor: '::',
-				_0: _mdgriffith$style_elements$Element_Attributes$spacing(20),
-				_1: {ctor: '[]'}
-			},
-			{
-				columns: {
-					ctor: '::',
-					_0: _mdgriffith$style_elements$Element_Attributes$px(100),
-					_1: {
-						ctor: '::',
-						_0: _mdgriffith$style_elements$Element_Attributes$px(100),
-						_1: {
-							ctor: '::',
-							_0: _mdgriffith$style_elements$Element_Attributes$px(100),
-							_1: {
-								ctor: '::',
-								_0: _mdgriffith$style_elements$Element_Attributes$px(100),
-								_1: {ctor: '[]'}
-							}
-						}
-					}
-				},
-				rows: {
-					ctor: '::',
-					_0: _mdgriffith$style_elements$Element_Attributes$px(100),
-					_1: {
-						ctor: '::',
-						_0: _mdgriffith$style_elements$Element_Attributes$px(100),
-						_1: {
-							ctor: '::',
-							_0: _mdgriffith$style_elements$Element_Attributes$px(100),
-							_1: {
-								ctor: '::',
-								_0: _mdgriffith$style_elements$Element_Attributes$px(100),
-								_1: {ctor: '[]'}
-							}
-						}
-					}
-				},
-				cells: {
-					ctor: '::',
-					_0: _mdgriffith$style_elements$Element$cell(
-						{
-							start: {ctor: '_Tuple2', _0: 0, _1: 0},
-							width: 1,
-							height: 1,
-							content: A3(
-								_mdgriffith$style_elements$Element$el,
-								_lucamug$elm_style_elements_examples$Main$Box,
-								{ctor: '[]'},
-								_mdgriffith$style_elements$Element$text('box'))
-						}),
-					_1: {
-						ctor: '::',
-						_0: _mdgriffith$style_elements$Element$cell(
-							{
-								start: {ctor: '_Tuple2', _0: 1, _1: 1},
-								width: 1,
-								height: 2,
-								content: A3(
-									_mdgriffith$style_elements$Element$el,
-									_lucamug$elm_style_elements_examples$Main$Box,
-									{
-										ctor: '::',
-										_0: _mdgriffith$style_elements$Element_Attributes$spacing(100),
-										_1: {ctor: '[]'}
-									},
-									_mdgriffith$style_elements$Element$text('box'))
-							}),
-						_1: {
-							ctor: '::',
-							_0: _mdgriffith$style_elements$Element$cell(
-								{
-									start: {ctor: '_Tuple2', _0: 2, _1: 1},
-									width: 2,
-									height: 2,
-									content: A3(
-										_mdgriffith$style_elements$Element$el,
-										_lucamug$elm_style_elements_examples$Main$Box,
-										{ctor: '[]'},
-										_mdgriffith$style_elements$Element$text('box'))
-								}),
-							_1: {
-								ctor: '::',
-								_0: _mdgriffith$style_elements$Element$cell(
-									{
-										start: {ctor: '_Tuple2', _0: 1, _1: 0},
-										width: 1,
-										height: 1,
-										content: A3(
-											_mdgriffith$style_elements$Element$el,
-											_lucamug$elm_style_elements_examples$Main$Box,
-											{ctor: '[]'},
-											_mdgriffith$style_elements$Element$text('box'))
-									}),
-								_1: {ctor: '[]'}
-							}
-						}
-					}
-				}
-			}),
-		_1: {ctor: '[]'}
-	}
-};
-var _lucamug$elm_style_elements_examples$Main$viewNamedGridLayout = {
-	ctor: '::',
-	_0: A3(
-		_mdgriffith$style_elements$Element$el,
-		_lucamug$elm_style_elements_examples$Main$Label,
-		{ctor: '[]'},
-		_mdgriffith$style_elements$Element$text('Named Grid Layout')),
-	_1: {
-		ctor: '::',
-		_0: A3(
-			_mdgriffith$style_elements$Element$namedGrid,
-			_lucamug$elm_style_elements_examples$Main$Container,
-			{ctor: '[]'},
-			{
-				columns: {
-					ctor: '::',
-					_0: _mdgriffith$style_elements$Element_Attributes$px(200),
-					_1: {
-						ctor: '::',
-						_0: _mdgriffith$style_elements$Element_Attributes$px(200),
-						_1: {
-							ctor: '::',
-							_0: _mdgriffith$style_elements$Element_Attributes$px(200),
-							_1: {
-								ctor: '::',
-								_0: _mdgriffith$style_elements$Element_Attributes$fill,
-								_1: {ctor: '[]'}
-							}
-						}
-					}
-				},
-				rows: {
-					ctor: '::',
-					_0: A2(
-						_lucamug$elm_style_elements_examples$Main_ops['=>'],
-						_mdgriffith$style_elements$Element_Attributes$px(200),
-						{
-							ctor: '::',
-							_0: _mdgriffith$style_elements$Element$spanAll('header'),
-							_1: {ctor: '[]'}
-						}),
-					_1: {
-						ctor: '::',
-						_0: A2(
-							_lucamug$elm_style_elements_examples$Main_ops['=>'],
-							_mdgriffith$style_elements$Element_Attributes$px(200),
-							{
-								ctor: '::',
-								_0: A2(_mdgriffith$style_elements$Element$span, 3, 'content'),
-								_1: {
-									ctor: '::',
-									_0: A2(_mdgriffith$style_elements$Element$span, 1, 'sidebar'),
-									_1: {ctor: '[]'}
-								}
-							}),
-						_1: {
-							ctor: '::',
-							_0: A2(
-								_lucamug$elm_style_elements_examples$Main_ops['=>'],
-								_mdgriffith$style_elements$Element_Attributes$px(200),
-								{
-									ctor: '::',
-									_0: A2(_mdgriffith$style_elements$Element$span, 3, 'content'),
-									_1: {
-										ctor: '::',
-										_0: A2(_mdgriffith$style_elements$Element$span, 1, 'sidebar'),
-										_1: {ctor: '[]'}
-									}
-								}),
-							_1: {
-								ctor: '::',
-								_0: A2(
-									_lucamug$elm_style_elements_examples$Main_ops['=>'],
-									_mdgriffith$style_elements$Element_Attributes$px(200),
-									{
-										ctor: '::',
-										_0: _mdgriffith$style_elements$Element$spanAll('footer'),
-										_1: {ctor: '[]'}
-									}),
-								_1: {ctor: '[]'}
-							}
-						}
-					}
-				},
-				cells: {
-					ctor: '::',
-					_0: A2(
-						_mdgriffith$style_elements$Element$named,
-						'header',
-						A3(
-							_mdgriffith$style_elements$Element$el,
-							_lucamug$elm_style_elements_examples$Main$Box,
-							{ctor: '[]'},
-							_mdgriffith$style_elements$Element$text('box'))),
-					_1: {
-						ctor: '::',
-						_0: A2(
-							_mdgriffith$style_elements$Element$named,
-							'sidebar',
-							A3(
-								_mdgriffith$style_elements$Element$el,
-								_lucamug$elm_style_elements_examples$Main$Box,
-								{ctor: '[]'},
-								_mdgriffith$style_elements$Element$text('box'))),
-						_1: {ctor: '[]'}
-					}
-				}
-			}),
-		_1: {ctor: '[]'}
-	}
-};
-var _lucamug$elm_style_elements_examples$Main$NavOption = {ctor: 'NavOption'};
-var _lucamug$elm_style_elements_examples$Main$Logo = {ctor: 'Logo'};
-var _lucamug$elm_style_elements_examples$Main$Page = {ctor: 'Page'};
-var _lucamug$elm_style_elements_examples$Main$Main = {ctor: 'Main'};
+var _lucamug$elm_style_elements_examples$Main$Title = {ctor: 'Title'};
 var _lucamug$elm_style_elements_examples$Main$None = {ctor: 'None'};
 var _lucamug$elm_style_elements_examples$Main$stylesheet = _mdgriffith$style_elements$Style$styleSheet(
 	{
@@ -24224,7 +23826,11 @@ var _lucamug$elm_style_elements_examples$Main$stylesheet = _mdgriffith$style_ele
 			_0: A2(
 				_mdgriffith$style_elements$Style$style,
 				_lucamug$elm_style_elements_examples$Main$Title,
-				{ctor: '[]'}),
+				{
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Style_Font$size(25),
+					_1: {ctor: '[]'}
+				}),
 			_1: {
 				ctor: '::',
 				_0: A2(
@@ -24304,176 +23910,13 @@ var _lucamug$elm_style_elements_examples$Main$stylesheet = _mdgriffith$style_ele
 								ctor: '::',
 								_0: A2(
 									_mdgriffith$style_elements$Style$style,
-									_lucamug$elm_style_elements_examples$Main$Main,
+									_lucamug$elm_style_elements_examples$Main$Example5,
 									{
 										ctor: '::',
-										_0: _mdgriffith$style_elements$Style_Border$all(1),
-										_1: {
-											ctor: '::',
-											_0: _mdgriffith$style_elements$Style_Color$text(_elm_lang$core$Color$darkCharcoal),
-											_1: {
-												ctor: '::',
-												_0: _mdgriffith$style_elements$Style_Color$background(_elm_lang$core$Color$white),
-												_1: {
-													ctor: '::',
-													_0: _mdgriffith$style_elements$Style_Color$border(_elm_lang$core$Color$lightGrey),
-													_1: {
-														ctor: '::',
-														_0: _mdgriffith$style_elements$Style_Font$typeface(_lucamug$elm_style_elements_examples$Main$sansSerif),
-														_1: {
-															ctor: '::',
-															_0: _mdgriffith$style_elements$Style_Font$size(16),
-															_1: {
-																ctor: '::',
-																_0: _mdgriffith$style_elements$Style_Font$lineHeight(1.3),
-																_1: {ctor: '[]'}
-															}
-														}
-													}
-												}
-											}
-										}
+										_0: A2(_mdgriffith$style_elements$Style_Shadow$glow, _elm_lang$core$Color$red, 5),
+										_1: {ctor: '[]'}
 									}),
-								_1: {
-									ctor: '::',
-									_0: A2(
-										_mdgriffith$style_elements$Style$style,
-										_lucamug$elm_style_elements_examples$Main$Page,
-										{
-											ctor: '::',
-											_0: _mdgriffith$style_elements$Style_Border$all(5),
-											_1: {
-												ctor: '::',
-												_0: _mdgriffith$style_elements$Style_Border$solid,
-												_1: {
-													ctor: '::',
-													_0: _mdgriffith$style_elements$Style_Color$text(_elm_lang$core$Color$darkCharcoal),
-													_1: {
-														ctor: '::',
-														_0: _mdgriffith$style_elements$Style_Color$background(_elm_lang$core$Color$white),
-														_1: {
-															ctor: '::',
-															_0: _mdgriffith$style_elements$Style_Color$border(_elm_lang$core$Color$lightGrey),
-															_1: {ctor: '[]'}
-														}
-													}
-												}
-											}
-										}),
-									_1: {
-										ctor: '::',
-										_0: A2(
-											_mdgriffith$style_elements$Style$style,
-											_lucamug$elm_style_elements_examples$Main$Label,
-											{
-												ctor: '::',
-												_0: _mdgriffith$style_elements$Style_Font$size(25),
-												_1: {
-													ctor: '::',
-													_0: _mdgriffith$style_elements$Style_Font$center,
-													_1: {ctor: '[]'}
-												}
-											}),
-										_1: {
-											ctor: '::',
-											_0: A2(
-												_mdgriffith$style_elements$Style$style,
-												_lucamug$elm_style_elements_examples$Main$Logo,
-												{
-													ctor: '::',
-													_0: _mdgriffith$style_elements$Style_Font$size(25),
-													_1: {
-														ctor: '::',
-														_0: _mdgriffith$style_elements$Style_Font$typeface(_lucamug$elm_style_elements_examples$Main$sansSerif),
-														_1: {ctor: '[]'}
-													}
-												}),
-											_1: {
-												ctor: '::',
-												_0: A2(
-													_mdgriffith$style_elements$Style$style,
-													_lucamug$elm_style_elements_examples$Main$NavOption,
-													{
-														ctor: '::',
-														_0: _mdgriffith$style_elements$Style_Font$size(16),
-														_1: {
-															ctor: '::',
-															_0: _mdgriffith$style_elements$Style_Font$typeface(_lucamug$elm_style_elements_examples$Main$sansSerif),
-															_1: {ctor: '[]'}
-														}
-													}),
-												_1: {
-													ctor: '::',
-													_0: A2(
-														_mdgriffith$style_elements$Style$style,
-														_lucamug$elm_style_elements_examples$Main$Box,
-														{
-															ctor: '::',
-															_0: _mdgriffith$style_elements$Style_Transition$all,
-															_1: {
-																ctor: '::',
-																_0: _mdgriffith$style_elements$Style_Color$text(_elm_lang$core$Color$white),
-																_1: {
-																	ctor: '::',
-																	_0: _mdgriffith$style_elements$Style_Color$background(_elm_lang$core$Color$blue),
-																	_1: {
-																		ctor: '::',
-																		_0: _mdgriffith$style_elements$Style_Color$border(_elm_lang$core$Color$blue),
-																		_1: {
-																			ctor: '::',
-																			_0: _mdgriffith$style_elements$Style_Border$rounded(3),
-																			_1: {
-																				ctor: '::',
-																				_0: _mdgriffith$style_elements$Style$hover(
-																					{
-																						ctor: '::',
-																						_0: _mdgriffith$style_elements$Style_Color$text(_elm_lang$core$Color$white),
-																						_1: {
-																							ctor: '::',
-																							_0: _mdgriffith$style_elements$Style_Color$background(_elm_lang$core$Color$red),
-																							_1: {
-																								ctor: '::',
-																								_0: _mdgriffith$style_elements$Style_Color$border(_elm_lang$core$Color$red),
-																								_1: {
-																									ctor: '::',
-																									_0: _mdgriffith$style_elements$Style$cursor('pointer'),
-																									_1: {ctor: '[]'}
-																								}
-																							}
-																						}
-																					}),
-																				_1: {ctor: '[]'}
-																			}
-																		}
-																	}
-																}
-															}
-														}),
-													_1: {
-														ctor: '::',
-														_0: A2(
-															_mdgriffith$style_elements$Style$style,
-															_lucamug$elm_style_elements_examples$Main$Container,
-															{
-																ctor: '::',
-																_0: _mdgriffith$style_elements$Style_Color$text(_elm_lang$core$Color$black),
-																_1: {
-																	ctor: '::',
-																	_0: _mdgriffith$style_elements$Style_Color$background(_elm_lang$core$Color$lightGrey),
-																	_1: {
-																		ctor: '::',
-																		_0: _mdgriffith$style_elements$Style_Color$border(_elm_lang$core$Color$lightGrey),
-																		_1: {ctor: '[]'}
-																	}
-																}
-															}),
-														_1: {ctor: '[]'}
-													}
-												}
-											}
-										}
-									}
-								}
+								_1: {ctor: '[]'}
 							}
 						}
 					}
@@ -24488,128 +23931,74 @@ var _lucamug$elm_style_elements_examples$Main$view = function (_p0) {
 		A3(
 			_mdgriffith$style_elements$Element$column,
 			_lucamug$elm_style_elements_examples$Main$None,
-			{ctor: '[]'},
+			{
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Element_Attributes$spacing(10),
+				_1: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Attributes$padding(10),
+					_1: {ctor: '[]'}
+				}
+			},
 			{
 				ctor: '::',
 				_0: A3(
 					_mdgriffith$style_elements$Element$el,
 					_lucamug$elm_style_elements_examples$Main$Title,
-					{
-						ctor: '::',
-						_0: _mdgriffith$style_elements$Element_Attributes$center,
-						_1: {
-							ctor: '::',
-							_0: _mdgriffith$style_elements$Element_Attributes$width(
-								_mdgriffith$style_elements$Element_Attributes$px(800)),
-							_1: {
-								ctor: '::',
-								_0: _mdgriffith$style_elements$Element_Attributes$padding(10),
-								_1: {ctor: '[]'}
-							}
-						}
-					},
+					_lucamug$elm_style_elements_examples$Main$format,
 					_mdgriffith$style_elements$Element$text('Borders')),
 				_1: {
 					ctor: '::',
 					_0: A3(
 						_mdgriffith$style_elements$Element$el,
 						_lucamug$elm_style_elements_examples$Main$Example1,
-						{
-							ctor: '::',
-							_0: _mdgriffith$style_elements$Element_Attributes$center,
-							_1: {
-								ctor: '::',
-								_0: _mdgriffith$style_elements$Element_Attributes$width(
-									_mdgriffith$style_elements$Element_Attributes$px(800)),
-								_1: {
-									ctor: '::',
-									_0: _mdgriffith$style_elements$Element_Attributes$padding(10),
-									_1: {ctor: '[]'}
-								}
-							}
-						},
+						_lucamug$elm_style_elements_examples$Main$format,
 						_mdgriffith$style_elements$Element$text('[ Border.all 1\n, Color.border Color.red\n]')),
 					_1: {
 						ctor: '::',
 						_0: A3(
 							_mdgriffith$style_elements$Element$el,
 							_lucamug$elm_style_elements_examples$Main$Example2,
-							{
-								ctor: '::',
-								_0: _mdgriffith$style_elements$Element_Attributes$center,
-								_1: {
-									ctor: '::',
-									_0: _mdgriffith$style_elements$Element_Attributes$width(
-										_mdgriffith$style_elements$Element_Attributes$px(800)),
-									_1: {
-										ctor: '::',
-										_0: _mdgriffith$style_elements$Element_Attributes$padding(10),
-										_1: {ctor: '[]'}
-									}
-								}
-							},
-							_mdgriffith$style_elements$Element$text('[ Border.all 10\n, Border.dashed\n, Color.border Color.green\n]')),
+							_lucamug$elm_style_elements_examples$Main$format,
+							_mdgriffith$style_elements$Element$text('[ Border.left 10\n, Border.dashed\n, Color.border Color.green\n]')),
 						_1: {
 							ctor: '::',
 							_0: A3(
 								_mdgriffith$style_elements$Element$el,
 								_lucamug$elm_style_elements_examples$Main$Example3,
-								{
-									ctor: '::',
-									_0: _mdgriffith$style_elements$Element_Attributes$center,
-									_1: {
-										ctor: '::',
-										_0: _mdgriffith$style_elements$Element_Attributes$width(
-											_mdgriffith$style_elements$Element_Attributes$px(800)),
-										_1: {
-											ctor: '::',
-											_0: _mdgriffith$style_elements$Element_Attributes$padding(10),
-											_1: {ctor: '[]'}
-										}
-									}
-								},
+								_lucamug$elm_style_elements_examples$Main$format,
 								_mdgriffith$style_elements$Element$text('[ Border.all 5\n, Border.rounded 50\n, Border.dotted\n, Color.border Color.lightOrange\n]')),
 							_1: {
 								ctor: '::',
 								_0: A3(
 									_mdgriffith$style_elements$Element$el,
 									_lucamug$elm_style_elements_examples$Main$Title,
-									{
-										ctor: '::',
-										_0: _mdgriffith$style_elements$Element_Attributes$center,
-										_1: {
-											ctor: '::',
-											_0: _mdgriffith$style_elements$Element_Attributes$width(
-												_mdgriffith$style_elements$Element_Attributes$px(800)),
-											_1: {
-												ctor: '::',
-												_0: _mdgriffith$style_elements$Element_Attributes$padding(10),
-												_1: {ctor: '[]'}
-											}
-										}
-									},
+									_lucamug$elm_style_elements_examples$Main$format,
 									_mdgriffith$style_elements$Element$text('Backgrounds')),
 								_1: {
 									ctor: '::',
 									_0: A3(
 										_mdgriffith$style_elements$Element$el,
 										_lucamug$elm_style_elements_examples$Main$Example4,
-										{
-											ctor: '::',
-											_0: _mdgriffith$style_elements$Element_Attributes$center,
-											_1: {
-												ctor: '::',
-												_0: _mdgriffith$style_elements$Element_Attributes$width(
-													_mdgriffith$style_elements$Element_Attributes$px(800)),
-												_1: {
-													ctor: '::',
-													_0: _mdgriffith$style_elements$Element_Attributes$padding(10),
-													_1: {ctor: '[]'}
-												}
-											}
-										},
+										_lucamug$elm_style_elements_examples$Main$format,
 										_mdgriffith$style_elements$Element$text('[ Background.gradient 0 [ Background.step Color.blue, Background.step Color.green ]\n]')),
-									_1: {ctor: '[]'}
+									_1: {
+										ctor: '::',
+										_0: A3(
+											_mdgriffith$style_elements$Element$el,
+											_lucamug$elm_style_elements_examples$Main$Title,
+											_lucamug$elm_style_elements_examples$Main$format,
+											_mdgriffith$style_elements$Element$text('Shadows')),
+										_1: {
+											ctor: '::',
+											_0: A3(
+												_mdgriffith$style_elements$Element$el,
+												_lucamug$elm_style_elements_examples$Main$Example5,
+												_lucamug$elm_style_elements_examples$Main$format,
+												_mdgriffith$style_elements$Element$text('[ Shadow.glow Color.red 5\n]')),
+											_1: {ctor: '[]'}
+										}
+									}
 								}
 							}
 						}
@@ -24625,297 +24014,6 @@ var _lucamug$elm_style_elements_examples$Main$main = _elm_lang$html$Html$beginne
 		},
 		view: _lucamug$elm_style_elements_examples$Main$view
 	})();
-var _lucamug$elm_style_elements_examples$Main$navigation = A3(
-	_mdgriffith$style_elements$Element$row,
-	_lucamug$elm_style_elements_examples$Main$None,
-	{
-		ctor: '::',
-		_0: _mdgriffith$style_elements$Element_Attributes$spread,
-		_1: {
-			ctor: '::',
-			_0: A2(_mdgriffith$style_elements$Element_Attributes$paddingXY, 80, 20),
-			_1: {ctor: '[]'}
-		}
-	},
-	{
-		ctor: '::',
-		_0: A3(
-			_mdgriffith$style_elements$Element$el,
-			_lucamug$elm_style_elements_examples$Main$Logo,
-			{ctor: '[]'},
-			_mdgriffith$style_elements$Element$text('Style Elements')),
-		_1: {
-			ctor: '::',
-			_0: A3(
-				_mdgriffith$style_elements$Element$row,
-				_lucamug$elm_style_elements_examples$Main$None,
-				{
-					ctor: '::',
-					_0: _mdgriffith$style_elements$Element_Attributes$spacing(20),
-					_1: {
-						ctor: '::',
-						_0: _mdgriffith$style_elements$Element_Attributes$alignBottom,
-						_1: {ctor: '[]'}
-					}
-				},
-				{
-					ctor: '::',
-					_0: A3(
-						_mdgriffith$style_elements$Element$el,
-						_lucamug$elm_style_elements_examples$Main$NavOption,
-						{ctor: '[]'},
-						_mdgriffith$style_elements$Element$text('share')),
-					_1: {
-						ctor: '::',
-						_0: A3(
-							_mdgriffith$style_elements$Element$el,
-							_lucamug$elm_style_elements_examples$Main$NavOption,
-							{ctor: '[]'},
-							_mdgriffith$style_elements$Element$text('about')),
-						_1: {
-							ctor: '::',
-							_0: A3(
-								_mdgriffith$style_elements$Element$el,
-								_lucamug$elm_style_elements_examples$Main$NavOption,
-								{ctor: '[]'},
-								_mdgriffith$style_elements$Element$text('user profile')),
-							_1: {ctor: '[]'}
-						}
-					}
-				}),
-			_1: {ctor: '[]'}
-		}
-	});
-var _lucamug$elm_style_elements_examples$Main$viewTextLayout = {
-	ctor: '::',
-	_0: A3(
-		_mdgriffith$style_elements$Element$el,
-		_lucamug$elm_style_elements_examples$Main$Label,
-		{ctor: '[]'},
-		_mdgriffith$style_elements$Element$text('First, Some Text')),
-	_1: {
-		ctor: '::',
-		_0: A3(
-			_mdgriffith$style_elements$Element$textLayout,
-			_lucamug$elm_style_elements_examples$Main$None,
-			{
-				ctor: '::',
-				_0: A2(_mdgriffith$style_elements$Element_Attributes$spacingXY, 25, 25),
-				_1: {
-					ctor: '::',
-					_0: _mdgriffith$style_elements$Element_Attributes$padding(60),
-					_1: {ctor: '[]'}
-				}
-			},
-			{
-				ctor: '::',
-				_0: A3(
-					_mdgriffith$style_elements$Element$el,
-					_lucamug$elm_style_elements_examples$Main$Box,
-					{
-						ctor: '::',
-						_0: _mdgriffith$style_elements$Element_Attributes$width(
-							_mdgriffith$style_elements$Element_Attributes$px(200)),
-						_1: {
-							ctor: '::',
-							_0: _mdgriffith$style_elements$Element_Attributes$height(
-								_mdgriffith$style_elements$Element_Attributes$px(300)),
-							_1: {
-								ctor: '::',
-								_0: _mdgriffith$style_elements$Element_Attributes$alignLeft,
-								_1: {ctor: '[]'}
-							}
-						}
-					},
-					_mdgriffith$style_elements$Element$text('Alignment attributes (such as alignLeft), work in all layouts. In a text layout, the result is the element is floated left.')),
-				_1: {
-					ctor: '::',
-					_0: A3(
-						_mdgriffith$style_elements$Element$paragraph,
-						_lucamug$elm_style_elements_examples$Main$None,
-						{ctor: '[]'},
-						{
-							ctor: '::',
-							_0: _mdgriffith$style_elements$Element$text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel lectus eget lorem lobortis suscipit. Fusce porta auctor purus sed tempor. Mauris auctor sapien sit amet elementum egestas. Maecenas placerat consequat mauris, at dapibus enim tristique a. Quisque feugiat ultricies lorem nec volutpat. Sed risus enim, facilisis id fermentum quis, eleifend in diam. Suspendisse euismod, urna nec consectetur volutpat, massa libero aliquam urna, hendrerit venenatis leo lacus faucibus nulla. Curabitur et mattis dolor.'),
-							_1: {ctor: '[]'}
-						}),
-					_1: {
-						ctor: '::',
-						_0: _mdgriffith$style_elements$Element$hairline(_lucamug$elm_style_elements_examples$Main$Container),
-						_1: {
-							ctor: '::',
-							_0: A3(
-								_mdgriffith$style_elements$Element$paragraph,
-								_lucamug$elm_style_elements_examples$Main$None,
-								{ctor: '[]'},
-								{
-									ctor: '::',
-									_0: _mdgriffith$style_elements$Element$text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel lectus eget lorem lobortis suscipit. Fusce porta auctor purus sed tempor. Mauris auctor sapien sit amet elementum egestas. Maecenas placerat consequat mauris, at dapibus enim tristique a. Quisque feugiat ultricies lorem nec volutpat. Sed risus enim, facilisis id fermentum quis, eleifend in diam. Suspendisse euismod, urna nec consectetur volutpat, massa libero aliquam urna, hendrerit venenatis leo lacus faucibus nulla. Curabitur et mattis dolor.'),
-									_1: {ctor: '[]'}
-								}),
-							_1: {
-								ctor: '::',
-								_0: A3(
-									_mdgriffith$style_elements$Element$paragraph,
-									_lucamug$elm_style_elements_examples$Main$None,
-									{
-										ctor: '::',
-										_0: _mdgriffith$style_elements$Element_Attributes$width(
-											_mdgriffith$style_elements$Element_Attributes$px(500)),
-										_1: {
-											ctor: '::',
-											_0: _mdgriffith$style_elements$Element_Attributes$center,
-											_1: {ctor: '[]'}
-										}
-									},
-									{
-										ctor: '::',
-										_0: _mdgriffith$style_elements$Element$text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel lectus eget lorem lobortis suscipit. Fusce porta auctor purus sed tempor. Mauris auctor sapien sit amet elementum egestas. Maecenas placerat consequat mauris, at dapibus enim tristique a. Quisque feugiat ultricies lorem nec volutpat. Sed risus enim, facilisis id fermentum quis, eleifend in diam. Suspendisse euismod, urna nec consectetur volutpat, massa libero aliquam urna, hendrerit venenatis leo lacus faucibus nulla. Curabitur et mattis dolor.'),
-										_1: {ctor: '[]'}
-									}),
-								_1: {
-									ctor: '::',
-									_0: A3(
-										_mdgriffith$style_elements$Element$paragraph,
-										_lucamug$elm_style_elements_examples$Main$None,
-										{ctor: '[]'},
-										{
-											ctor: '::',
-											_0: _mdgriffith$style_elements$Element$text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel lectus eget lorem lobortis suscipit. Fusce porta auctor purus sed tempor. Mauris auctor sapien sit amet elementum egestas. Maecenas placerat consequat mauris, at dapibus enim tristique a. Quisque feugiat ultricies lorem nec volutpat. Sed risus enim, facilisis id fermentum quis, eleifend in diam. Suspendisse euismod, urna nec consectetur volutpat, massa libero aliquam urna, hendrerit venenatis leo lacus faucibus nulla. Curabitur et mattis dolor.'),
-											_1: {ctor: '[]'}
-										}),
-									_1: {
-										ctor: '::',
-										_0: A3(
-											_mdgriffith$style_elements$Element$el,
-											_lucamug$elm_style_elements_examples$Main$Box,
-											{
-												ctor: '::',
-												_0: _mdgriffith$style_elements$Element_Attributes$width(
-													_mdgriffith$style_elements$Element_Attributes$px(200)),
-												_1: {
-													ctor: '::',
-													_0: _mdgriffith$style_elements$Element_Attributes$height(
-														_mdgriffith$style_elements$Element_Attributes$px(300)),
-													_1: {
-														ctor: '::',
-														_0: _mdgriffith$style_elements$Element_Attributes$alignRight,
-														_1: {
-															ctor: '::',
-															_0: _mdgriffith$style_elements$Element_Attributes$spacing(100),
-															_1: {ctor: '[]'}
-														}
-													}
-												}
-											},
-											_mdgriffith$style_elements$Element$empty),
-										_1: {
-											ctor: '::',
-											_0: A3(
-												_mdgriffith$style_elements$Element$paragraph,
-												_lucamug$elm_style_elements_examples$Main$None,
-												{ctor: '[]'},
-												{
-													ctor: '::',
-													_0: _mdgriffith$style_elements$Element$text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel lectus eget lorem lobortis suscipit. Fusce porta auctor purus sed tempor. Mauris auctor sapien sit amet elementum egestas. Maecenas placerat consequat mauris, at dapibus enim tristique a. Quisque feugiat ultricies lorem nec volutpat. Sed risus enim, facilisis id fermentum quis, eleifend in diam. Suspendisse euismod, urna nec consectetur volutpat, massa libero aliquam urna, hendrerit venenatis leo lacus faucibus nulla. Curabitur et mattis dolor.'),
-													_1: {ctor: '[]'}
-												}),
-											_1: {
-												ctor: '::',
-												_0: A3(
-													_mdgriffith$style_elements$Element$paragraph,
-													_lucamug$elm_style_elements_examples$Main$None,
-													{ctor: '[]'},
-													{
-														ctor: '::',
-														_0: _mdgriffith$style_elements$Element$text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel lectus eget lorem lobortis suscipit. Fusce porta auctor purus sed tempor. Mauris auctor sapien sit amet elementum egestas. Maecenas placerat consequat mauris, at dapibus enim tristique a. Quisque feugiat ultricies lorem nec volutpat. Sed risus enim, facilisis id fermentum quis, eleifend in diam. Suspendisse euismod, urna nec consectetur volutpat, massa libero aliquam urna, hendrerit venenatis leo lacus faucibus nulla. Curabitur et mattis dolor.'),
-														_1: {ctor: '[]'}
-													}),
-												_1: {
-													ctor: '::',
-													_0: A3(
-														_mdgriffith$style_elements$Element$full,
-														_lucamug$elm_style_elements_examples$Main$Box,
-														{ctor: '[]'},
-														_mdgriffith$style_elements$Element$text('A Full element will grow to consume parent padding!')),
-													_1: {ctor: '[]'}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}),
-		_1: {ctor: '[]'}
-	}
-};
-var _lucamug$elm_style_elements_examples$Main$view2 = function (_p1) {
-	return A2(
-		_mdgriffith$style_elements$Element$layout,
-		_lucamug$elm_style_elements_examples$Main$stylesheet,
-		A3(
-			_mdgriffith$style_elements$Element$column,
-			_lucamug$elm_style_elements_examples$Main$None,
-			{ctor: '[]'},
-			{
-				ctor: '::',
-				_0: _lucamug$elm_style_elements_examples$Main$navigation,
-				_1: {
-					ctor: '::',
-					_0: A3(
-						_mdgriffith$style_elements$Element$el,
-						_lucamug$elm_style_elements_examples$Main$None,
-						{
-							ctor: '::',
-							_0: _mdgriffith$style_elements$Element_Attributes$center,
-							_1: {
-								ctor: '::',
-								_0: _mdgriffith$style_elements$Element_Attributes$width(
-									_mdgriffith$style_elements$Element_Attributes$px(800)),
-								_1: {ctor: '[]'}
-							}
-						},
-						A3(
-							_mdgriffith$style_elements$Element$column,
-							_lucamug$elm_style_elements_examples$Main$Main,
-							{
-								ctor: '::',
-								_0: _mdgriffith$style_elements$Element_Attributes$spacing(50),
-								_1: {
-									ctor: '::',
-									_0: _mdgriffith$style_elements$Element_Attributes$paddingTop(50),
-									_1: {
-										ctor: '::',
-										_0: _mdgriffith$style_elements$Element_Attributes$paddingBottom(50),
-										_1: {ctor: '[]'}
-									}
-								}
-							},
-							_elm_lang$core$List$concat(
-								{
-									ctor: '::',
-									_0: _lucamug$elm_style_elements_examples$Main$viewTextLayout,
-									_1: {
-										ctor: '::',
-										_0: _lucamug$elm_style_elements_examples$Main$viewRowLayouts,
-										_1: {
-											ctor: '::',
-											_0: _lucamug$elm_style_elements_examples$Main$viewGridLayout,
-											_1: {
-												ctor: '::',
-												_0: _lucamug$elm_style_elements_examples$Main$viewNamedGridLayout,
-												_1: {ctor: '[]'}
-											}
-										}
-									}
-								}))),
-					_1: {ctor: '[]'}
-				}
-			}));
-};
 
 var Elm = {};
 Elm['Main'] = Elm['Main'] || {};
