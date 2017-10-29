@@ -23,6 +23,15 @@ type Styles
     | Example4
     | Example5
     | BackgroundPurple
+    | ChatContainer
+    | ChatLabel
+    | ChatNavbar
+    | ChatSidebar
+    | ChatInspector
+    | ChatMessageBox
+    | ChatChat
+    | ChatMain
+    | ChatH3
 
 
 sansSerif : List Font
@@ -35,11 +44,17 @@ sansSerif =
 
 colors :
     { text : Color.Color
+    , blue1 : Color.Color
     , green1 : Color.Color
     , green2 : Color.Color
+    , mauve : Color.Color
+    , blue2 : Color.Color
     }
 colors =
     { text = Color.rgba 88 39 39 0.5
+    , mauve = Color.rgba 176 161 186 1
+    , blue1 = Color.rgba 165 181 191 1
+    , blue2 = Color.rgba 171 200 199 1
     , green1 = Color.rgba 184 226 200 1
     , green2 = Color.rgba 191 240 212 1
     }
@@ -86,6 +101,29 @@ stylesheet =
         , style Example5
             [ Shadow.glow Color.red 5
             ]
+        , style ChatContainer
+            [ Color.text Color.black
+            , Color.background colors.blue2
+            , Color.border Color.lightGrey
+            ]
+        , style ChatChat
+            [ Color.background colors.blue1
+            ]
+        , style ChatNavbar
+            [ Color.background colors.mauve
+            ]
+        , style ChatSidebar
+            [ Color.background colors.green1
+            ]
+        , style ChatInspector
+            [ Color.background colors.green2
+            ]
+        , style ChatMessageBox
+            [ Color.background colors.blue2 ]
+        , style ChatMain
+            [ Font.typeface [ Font.font "helvetica" ] ]
+        , style ChatH3
+            [ Font.size 20, Font.weight 400 ]
         ]
 
 
@@ -119,7 +157,9 @@ view model =
                 , width fill
                 ]
                 [ menu
-                , example2
+
+                --, example2
+                , chatMain
                 ]
             ]
 
@@ -215,66 +255,72 @@ example2 =
         ]
 
 
-view2 : a -> Html.Html msg
-view2 _ =
-    Element.layout stylesheet <|
-        column Main
-            [ height fill ]
-            [ column Main
-                [ spacing 20, padding 20, spread ]
-                [ el Title format <|
-                    text "Borders"
-                , el Example1 format <|
-                    text """[ Border.all 1
-, Color.border Color.red
-]"""
-                , el Example2 format <|
-                    text """[ Border.left 10
-, Border.dashed
-, Color.border Color.green
-]"""
-                , el Example3 format <|
-                    text """[ Border.all 5
-, Border.rounded 50
-, Border.dotted
-, Color.border Color.lightOrange
-]"""
-                , el Title format <|
-                    text "Backgrounds"
-                , el Example4 format <|
-                    text """[ Background.gradient 0 [ Background.step Color.blue, Background.step Color.green ]
-]"""
-                , el Title format <|
-                    text "Shadows"
-                , el Example5 format <|
-                    text """[ Shadow.glow Color.red 5
-]"""
-                ]
-            , row BackgroundPurple
-                [ spacing 20, padding 20, spread ]
-                [ el Example1 format <|
-                    text "text"
-                , el Example1 format <|
-                    text "text"
-                , el Example1 format <|
-                    text "text"
-                , el Example1 format <|
-                    text "text"
-                , el Example1 format <|
-                    text "text"
-                , el Example1 format <|
-                    text "text"
-                , el Example1 format <|
-                    text "text"
-                , el Example1 format <|
-                    text "text"
-                , el Example1 format <|
-                    text "text"
-                , el Example1 format <|
-                    text "text"
-                , el Example1 format <|
-                    text "text"
-                , el Example1 format <|
-                    text "text"
-                ]
+chatMain : Element Styles variation msg
+chatMain =
+    column Main
+        [ height fill ]
+        [ el ChatNavbar [ padding 20 ] (text "Navbar")
+        , row None
+            [ height fill
+            , width fill
             ]
+            [ chatSidebar, chatBody, chatInspector ]
+        ]
+
+
+chatSidebar : Element Styles variation msg
+chatSidebar =
+    column ChatSidebar
+        [ padding 20
+        , alignLeft
+        , width <| px 300
+        ]
+        [ el ChatH3 [] (text "Channels") ]
+
+
+chatInspector : Element Styles variation msg
+chatInspector =
+    column ChatInspector
+        [ padding 20
+        , alignLeft
+        , width <| px 200
+        , height fill
+        ]
+        [ text "Inspector" ]
+
+
+chatBody : Element Styles variation msg
+chatBody =
+    column None
+        [ alignLeft
+        , width fill
+        ]
+        [ chatMessages, chatMessageBox ]
+
+
+chatMessages : Element Styles variation msg
+chatMessages =
+    column
+        ChatChat
+        [ width fill
+        , alignLeft
+        , yScrollbar
+        ]
+        (List.map chatMessage <| List.range 1 100)
+
+
+chatMessage : a -> Element Styles variation msg
+chatMessage n =
+    el None
+        [ padding 10 ]
+        (text <| "message" ++ toString n)
+
+
+chatMessageBox : Element Styles variation msg
+chatMessageBox =
+    el ChatMessageBox
+        [ height <| px 300
+        , width fill
+        , verticalCenter
+        ]
+        (text "Message box")
