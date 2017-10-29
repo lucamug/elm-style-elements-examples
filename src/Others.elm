@@ -14,12 +14,14 @@ import Style.Shadow as Shadow
 
 type Styles
     = None
+    | Main
     | Title
     | Example1
     | Example2
     | Example3
     | Example4
     | Example5
+    | BackgroundPurple
 
 
 sansSerif : List Font
@@ -33,9 +35,17 @@ sansSerif =
 stylesheet : StyleSheet Styles variation
 stylesheet =
     Style.styleSheet
-        [ style None [] -- It's handy to have a blank style
+        [ style None []
+        , style Main
+            [ Color.text Color.darkGrey
+            ]
         , style Title
-            [ Font.size 25 ]
+            [ Font.size 25
+            , Color.text Color.brown
+            ]
+        , style BackgroundPurple
+            [ Color.background Color.purple
+            ]
         , style Example1
             [ Border.all 1
             , Color.border Color.red
@@ -71,39 +81,69 @@ main =
 
 format : List (Element.Attribute variation msg)
 format =
-    [ center, width fill, padding 10 ]
+    [ padding 20, width fill ]
 
 
 view : a -> Html.Html msg
 view _ =
     Element.layout stylesheet <|
-        column None
-            [ spacing 10, padding 10 ]
-            [ el Title format <|
-                text "Borders"
-            , el Example1 format <|
-                text """[ Border.all 1
+        column Main
+            []
+            [ column Main
+                [ spacing 20, padding 20, spread ]
+                [ el Title format <|
+                    text "Borders"
+                , el Example1 format <|
+                    text """[ Border.all 1
 , Color.border Color.red
 ]"""
-            , el Example2 format <|
-                text """[ Border.left 10
+                , el Example2 format <|
+                    text """[ Border.left 10
 , Border.dashed
 , Color.border Color.green
 ]"""
-            , el Example3 format <|
-                text """[ Border.all 5
+                , el Example3 format <|
+                    text """[ Border.all 5
 , Border.rounded 50
 , Border.dotted
 , Color.border Color.lightOrange
 ]"""
-            , el Title format <|
-                text "Backgrounds"
-            , el Example4 format <|
-                text """[ Background.gradient 0 [ Background.step Color.blue, Background.step Color.green ]
+                , el Title format <|
+                    text "Backgrounds"
+                , el Example4 format <|
+                    text """[ Background.gradient 0 [ Background.step Color.blue, Background.step Color.green ]
 ]"""
-            , el Title format <|
-                text "Shadows"
-            , el Example5 format <|
-                text """[ Shadow.glow Color.red 5
+                , el Title format <|
+                    text "Shadows"
+                , el Example5 format <|
+                    text """[ Shadow.glow Color.red 5
 ]"""
+                , row BackgroundPurple
+                    [ spacing 20, padding 20, spread ]
+                    [ el Example1 format <|
+                        text "text"
+                    , el Example1 format <|
+                        text "text"
+                    , el Example1 format <|
+                        text "text"
+                    , el Example1 format <|
+                        text "text"
+                    , el Example1 format <|
+                        text "text"
+                    , el Example1 format <|
+                        text "text"
+                    , el Example1 format <|
+                        text "text"
+                    , el Example1 format <|
+                        text "text"
+                    , el Example1 format <|
+                        text "text"
+                    , el Example1 format <|
+                        text "text"
+                    , el Example1 format <|
+                        text "text"
+                    , el Example1 format <|
+                        text "text"
+                    ]
+                ]
             ]
