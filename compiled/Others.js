@@ -24001,12 +24001,13 @@ var _lucamug$elm_style_elements_examples$Main$format = {
 	}
 };
 var _lucamug$elm_style_elements_examples$Main$colors = {
-	text: A4(_elm_lang$core$Color$rgba, 88, 39, 39, 0.5),
+	text: A4(_elm_lang$core$Color$rgba, 120, 120, 120, 1.0),
 	mauve: A4(_elm_lang$core$Color$rgba, 176, 161, 186, 1),
 	blue1: A4(_elm_lang$core$Color$rgba, 165, 181, 191, 1),
 	blue2: A4(_elm_lang$core$Color$rgba, 171, 200, 199, 1),
 	green1: A4(_elm_lang$core$Color$rgba, 184, 226, 200, 1),
-	green2: A4(_elm_lang$core$Color$rgba, 191, 240, 212, 1)
+	green2: A4(_elm_lang$core$Color$rgba, 191, 240, 212, 1),
+	codeBackground: A4(_elm_lang$core$Color$rgba, 240, 240, 240, 1)
 };
 var _lucamug$elm_style_elements_examples$Main$sansSerif = {
 	ctor: '::',
@@ -24021,17 +24022,18 @@ var _lucamug$elm_style_elements_examples$Main$sansSerif = {
 		}
 	}
 };
+var _lucamug$elm_style_elements_examples$Main$LightBackground = {ctor: 'LightBackground'};
+var _lucamug$elm_style_elements_examples$Main$Code = {ctor: 'Code'};
 var _lucamug$elm_style_elements_examples$Main$Box = {ctor: 'Box'};
 var _lucamug$elm_style_elements_examples$Main$MyGridStyle = {ctor: 'MyGridStyle'};
-var _lucamug$elm_style_elements_examples$Main$exampleGrid = A3(
-	_mdgriffith$style_elements$Element$grid,
-	_lucamug$elm_style_elements_examples$Main$MyGridStyle,
-	{ctor: '[]'},
-	{
-		columns: {
-			ctor: '::',
-			_0: _mdgriffith$style_elements$Element_Attributes$px(100),
-			_1: {
+var _lucamug$elm_style_elements_examples$Main$exampleGrid = {
+	text: '\n        grid MyGridStyle\n            []\n            { columns = [ px 100, px 100, px 100, px 100 ]\n            , rows =\n                [ px 100\n                , px 100\n                , px 100\n                , px 100\n                ]\n            , cells =\n                [ cell\n                    { start = ( 0, 0 )\n                    , width = 4\n                    , height = 1\n                    , content = el Box [] (text \"box1\")\n                    }\n                , cell\n                    { start = ( 0, 1 )\n                    , width = 1\n                    , height = 2\n                    , content = el Box [] (text \"box2\")\n                    }\n                , cell\n                    { start = ( 0, 3 )\n                    , width = 1\n                    , height = 1\n                    , content = el Box [] (text \"box3\")\n                    }\n                , cell\n                    { start = ( 1, 1 )\n                    , width = 3\n                    , height = 3\n                    , content = el Box [] (text \"box4\")\n                    }\n                ]\n            }\n     ',
+	source: A3(
+		_mdgriffith$style_elements$Element$grid,
+		_lucamug$elm_style_elements_examples$Main$MyGridStyle,
+		{ctor: '[]'},
+		{
+			columns: {
 				ctor: '::',
 				_0: _mdgriffith$style_elements$Element_Attributes$px(100),
 				_1: {
@@ -24040,15 +24042,15 @@ var _lucamug$elm_style_elements_examples$Main$exampleGrid = A3(
 					_1: {
 						ctor: '::',
 						_0: _mdgriffith$style_elements$Element_Attributes$px(100),
-						_1: {ctor: '[]'}
+						_1: {
+							ctor: '::',
+							_0: _mdgriffith$style_elements$Element_Attributes$px(100),
+							_1: {ctor: '[]'}
+						}
 					}
 				}
-			}
-		},
-		rows: {
-			ctor: '::',
-			_0: _mdgriffith$style_elements$Element_Attributes$px(100),
-			_1: {
+			},
+			rows: {
 				ctor: '::',
 				_0: _mdgriffith$style_elements$Element_Attributes$px(100),
 				_1: {
@@ -24057,316 +24059,249 @@ var _lucamug$elm_style_elements_examples$Main$exampleGrid = A3(
 					_1: {
 						ctor: '::',
 						_0: _mdgriffith$style_elements$Element_Attributes$px(100),
-						_1: {ctor: '[]'}
+						_1: {
+							ctor: '::',
+							_0: _mdgriffith$style_elements$Element_Attributes$px(100),
+							_1: {ctor: '[]'}
+						}
 					}
 				}
-			}
-		},
-		cells: {
-			ctor: '::',
-			_0: _mdgriffith$style_elements$Element$cell(
-				{
-					start: {ctor: '_Tuple2', _0: 0, _1: 0},
-					width: 4,
-					height: 1,
-					content: A3(
-						_mdgriffith$style_elements$Element$el,
-						_lucamug$elm_style_elements_examples$Main$Box,
-						{ctor: '[]'},
-						_mdgriffith$style_elements$Element$text('box1'))
-				}),
-			_1: {
+			},
+			cells: {
 				ctor: '::',
 				_0: _mdgriffith$style_elements$Element$cell(
 					{
-						start: {ctor: '_Tuple2', _0: 0, _1: 1},
-						width: 1,
-						height: 2,
+						start: {ctor: '_Tuple2', _0: 0, _1: 0},
+						width: 4,
+						height: 1,
 						content: A3(
 							_mdgriffith$style_elements$Element$el,
 							_lucamug$elm_style_elements_examples$Main$Box,
 							{ctor: '[]'},
-							_mdgriffith$style_elements$Element$text('box2'))
+							_mdgriffith$style_elements$Element$text('box1'))
 					}),
 				_1: {
 					ctor: '::',
 					_0: _mdgriffith$style_elements$Element$cell(
 						{
-							start: {ctor: '_Tuple2', _0: 0, _1: 3},
+							start: {ctor: '_Tuple2', _0: 0, _1: 1},
 							width: 1,
-							height: 1,
+							height: 2,
 							content: A3(
 								_mdgriffith$style_elements$Element$el,
 								_lucamug$elm_style_elements_examples$Main$Box,
 								{ctor: '[]'},
-								_mdgriffith$style_elements$Element$text('box3'))
+								_mdgriffith$style_elements$Element$text('box2'))
 						}),
 					_1: {
 						ctor: '::',
 						_0: _mdgriffith$style_elements$Element$cell(
 							{
-								start: {ctor: '_Tuple2', _0: 1, _1: 1},
-								width: 3,
-								height: 3,
+								start: {ctor: '_Tuple2', _0: 0, _1: 3},
+								width: 1,
+								height: 1,
 								content: A3(
 									_mdgriffith$style_elements$Element$el,
 									_lucamug$elm_style_elements_examples$Main$Box,
 									{ctor: '[]'},
-									_mdgriffith$style_elements$Element$text('box4'))
+									_mdgriffith$style_elements$Element$text('box3'))
 							}),
-						_1: {ctor: '[]'}
+						_1: {
+							ctor: '::',
+							_0: _mdgriffith$style_elements$Element$cell(
+								{
+									start: {ctor: '_Tuple2', _0: 1, _1: 1},
+									width: 3,
+									height: 3,
+									content: A3(
+										_mdgriffith$style_elements$Element$el,
+										_lucamug$elm_style_elements_examples$Main$Box,
+										{ctor: '[]'},
+										_mdgriffith$style_elements$Element$text('box4'))
+								}),
+							_1: {ctor: '[]'}
+						}
 					}
 				}
 			}
-		}
-	});
+		})
+};
 var _lucamug$elm_style_elements_examples$Main$ChatH3 = {ctor: 'ChatH3'};
 var _lucamug$elm_style_elements_examples$Main$ChatMain = {ctor: 'ChatMain'};
 var _lucamug$elm_style_elements_examples$Main$ChatChat = {ctor: 'ChatChat'};
 var _lucamug$elm_style_elements_examples$Main$ChatMessageBox = {ctor: 'ChatMessageBox'};
-var _lucamug$elm_style_elements_examples$Main$chatMessageBox = A3(
-	_mdgriffith$style_elements$Element$el,
-	_lucamug$elm_style_elements_examples$Main$ChatMessageBox,
-	{
-		ctor: '::',
-		_0: _mdgriffith$style_elements$Element_Attributes$height(
-			_mdgriffith$style_elements$Element_Attributes$px(300)),
-		_1: {
-			ctor: '::',
-			_0: _mdgriffith$style_elements$Element_Attributes$width(_mdgriffith$style_elements$Element_Attributes$fill),
-			_1: {
-				ctor: '::',
-				_0: _mdgriffith$style_elements$Element_Attributes$verticalCenter,
-				_1: {ctor: '[]'}
-			}
-		}
-	},
-	_mdgriffith$style_elements$Element$text('Message box'));
 var _lucamug$elm_style_elements_examples$Main$ChatInspector = {ctor: 'ChatInspector'};
-var _lucamug$elm_style_elements_examples$Main$chatInspector = A3(
-	_mdgriffith$style_elements$Element$column,
-	_lucamug$elm_style_elements_examples$Main$ChatInspector,
-	{
-		ctor: '::',
-		_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
-		_1: {
-			ctor: '::',
-			_0: _mdgriffith$style_elements$Element_Attributes$alignLeft,
-			_1: {
-				ctor: '::',
-				_0: _mdgriffith$style_elements$Element_Attributes$width(
-					_mdgriffith$style_elements$Element_Attributes$px(200)),
-				_1: {
-					ctor: '::',
-					_0: _mdgriffith$style_elements$Element_Attributes$height(_mdgriffith$style_elements$Element_Attributes$fill),
-					_1: {ctor: '[]'}
-				}
-			}
-		}
-	},
-	{
-		ctor: '::',
-		_0: _mdgriffith$style_elements$Element$text('Inspector'),
-		_1: {ctor: '[]'}
-	});
 var _lucamug$elm_style_elements_examples$Main$ChatSidebar = {ctor: 'ChatSidebar'};
-var _lucamug$elm_style_elements_examples$Main$chatSidebar = A3(
-	_mdgriffith$style_elements$Element$column,
-	_lucamug$elm_style_elements_examples$Main$ChatSidebar,
-	{
-		ctor: '::',
-		_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
-		_1: {
-			ctor: '::',
-			_0: _mdgriffith$style_elements$Element_Attributes$alignLeft,
-			_1: {
-				ctor: '::',
-				_0: _mdgriffith$style_elements$Element_Attributes$width(
-					_mdgriffith$style_elements$Element_Attributes$px(300)),
-				_1: {ctor: '[]'}
-			}
-		}
-	},
-	{
-		ctor: '::',
-		_0: A3(
-			_mdgriffith$style_elements$Element$el,
-			_lucamug$elm_style_elements_examples$Main$ChatH3,
-			{ctor: '[]'},
-			_mdgriffith$style_elements$Element$text('Channels')),
-		_1: {ctor: '[]'}
-	});
 var _lucamug$elm_style_elements_examples$Main$ChatNavbar = {ctor: 'ChatNavbar'};
 var _lucamug$elm_style_elements_examples$Main$ChatLabel = {ctor: 'ChatLabel'};
 var _lucamug$elm_style_elements_examples$Main$ChatContainer = {ctor: 'ChatContainer'};
 var _lucamug$elm_style_elements_examples$Main$BackgroundPurple = {ctor: 'BackgroundPurple'};
+var _lucamug$elm_style_elements_examples$Main$Clickable = {ctor: 'Clickable'};
 var _lucamug$elm_style_elements_examples$Main$Example5 = {ctor: 'Example5'};
 var _lucamug$elm_style_elements_examples$Main$Example4 = {ctor: 'Example4'};
 var _lucamug$elm_style_elements_examples$Main$Example3 = {ctor: 'Example3'};
 var _lucamug$elm_style_elements_examples$Main$Example2 = {ctor: 'Example2'};
 var _lucamug$elm_style_elements_examples$Main$Example1 = {ctor: 'Example1'};
-var _lucamug$elm_style_elements_examples$Main$Menu = {ctor: 'Menu'};
-var _lucamug$elm_style_elements_examples$Main$Title = {ctor: 'Title'};
-var _lucamug$elm_style_elements_examples$Main$Main = {ctor: 'Main'};
-var _lucamug$elm_style_elements_examples$Main$exampleBorders = A3(
-	_mdgriffith$style_elements$Element$column,
-	_lucamug$elm_style_elements_examples$Main$Main,
-	{
-		ctor: '::',
-		_0: _mdgriffith$style_elements$Element_Attributes$scrollbars,
-		_1: {
+var _lucamug$elm_style_elements_examples$Main$exampleRow = {
+	text: '\n        row LightBackground\n            [ scrollbars, padding 20, spacing 10 ]\n            (List.map\n                (\\n ->\n                    (el Example1\n                        [ padding 20 ]\n                        (text (\"Itme \" ++ toString n))\n                    )\n                )\n                (List.range 1 10)\n            )\n',
+	source: A3(
+		_mdgriffith$style_elements$Element$row,
+		_lucamug$elm_style_elements_examples$Main$LightBackground,
+		{
 			ctor: '::',
-			_0: _mdgriffith$style_elements$Element_Attributes$spacing(20),
+			_0: _mdgriffith$style_elements$Element_Attributes$scrollbars,
 			_1: {
 				ctor: '::',
 				_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
-				_1: {ctor: '[]'}
-			}
-		}
-	},
-	{
-		ctor: '::',
-		_0: A3(
-			_mdgriffith$style_elements$Element$el,
-			_lucamug$elm_style_elements_examples$Main$Example1,
-			{
-				ctor: '::',
-				_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
-				_1: {ctor: '[]'}
-			},
-			_mdgriffith$style_elements$Element$text('[ Border.all 1\n, Color.border Color.red\n]')),
-		_1: {
-			ctor: '::',
-			_0: A3(
-				_mdgriffith$style_elements$Element$el,
-				_lucamug$elm_style_elements_examples$Main$Example2,
-				{
+				_1: {
 					ctor: '::',
-					_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
+					_0: _mdgriffith$style_elements$Element_Attributes$spacing(10),
 					_1: {ctor: '[]'}
-				},
-				_mdgriffith$style_elements$Element$text('[ Border.left 10\n, Border.dashed\n, Color.border Color.green\n]')),
-			_1: {
-				ctor: '::',
-				_0: A3(
+				}
+			}
+		},
+		A2(
+			_elm_lang$core$List$map,
+			function (n) {
+				return A3(
 					_mdgriffith$style_elements$Element$el,
-					_lucamug$elm_style_elements_examples$Main$Example3,
+					_lucamug$elm_style_elements_examples$Main$Example1,
 					{
 						ctor: '::',
 						_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
 						_1: {ctor: '[]'}
 					},
-					_mdgriffith$style_elements$Element$text('[ Border.all 5\n, Border.rounded 50\n, Border.dotted\n, Color.border Color.lightOrange\n]')),
+					_mdgriffith$style_elements$Element$text(
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							'Itme ',
+							_elm_lang$core$Basics$toString(n))));
+			},
+			A2(_elm_lang$core$List$range, 1, 10)))
+};
+var _lucamug$elm_style_elements_examples$Main$Menu = {ctor: 'Menu'};
+var _lucamug$elm_style_elements_examples$Main$Title = {ctor: 'Title'};
+var _lucamug$elm_style_elements_examples$Main$Main = {ctor: 'Main'};
+var _lucamug$elm_style_elements_examples$Main$exampleBorders = {
+	text: '\n        , style Example1\n            [ Border.all 1\n            , Color.border Color.red\n            ]\n        , style Example2\n            [ Border.left 10\n            , Border.dashed\n            , Color.border Color.green\n            ]\n        , style Example3\n            [ Border.all 5\n            , Border.rounded 30\n            , Border.dotted\n            , Color.border Color.lightOrange\n            ]\n\n\n        column Main\n            [ scrollbars, spacing 20, padding 20 ]\n            [ el Example1 [ padding 20 ] <|\n                text \"Border 1\"\n            , el Example2 [ padding 20 ] <|\n                text \"Border 2\"\n            , el Example3 [ padding 20 ] <|\n                text \"Border 3\"\n            ]\n     ',
+	source: A3(
+		_mdgriffith$style_elements$Element$column,
+		_lucamug$elm_style_elements_examples$Main$Main,
+		{
+			ctor: '::',
+			_0: _mdgriffith$style_elements$Element_Attributes$scrollbars,
+			_1: {
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Element_Attributes$spacing(20),
+				_1: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
+					_1: {ctor: '[]'}
+				}
+			}
+		},
+		{
+			ctor: '::',
+			_0: A3(
+				_mdgriffith$style_elements$Element$el,
+				_lucamug$elm_style_elements_examples$Main$Example1,
+				{
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
+					_1: {ctor: '[]'}
+				},
+				_mdgriffith$style_elements$Element$text('Border 1')),
+			_1: {
+				ctor: '::',
+				_0: A3(
+					_mdgriffith$style_elements$Element$el,
+					_lucamug$elm_style_elements_examples$Main$Example2,
+					{
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
+						_1: {ctor: '[]'}
+					},
+					_mdgriffith$style_elements$Element$text('Border 2')),
 				_1: {
 					ctor: '::',
 					_0: A3(
 						_mdgriffith$style_elements$Element$el,
-						_lucamug$elm_style_elements_examples$Main$Title,
+						_lucamug$elm_style_elements_examples$Main$Example3,
 						{
 							ctor: '::',
 							_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
 							_1: {ctor: '[]'}
 						},
-						_mdgriffith$style_elements$Element$text('Backgrounds')),
-					_1: {
-						ctor: '::',
-						_0: A3(
-							_mdgriffith$style_elements$Element$el,
-							_lucamug$elm_style_elements_examples$Main$Example4,
-							{
-								ctor: '::',
-								_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
-								_1: {ctor: '[]'}
-							},
-							_mdgriffith$style_elements$Element$text('[ Background.gradient 0 [ Background.step Color.blue, Background.step Color.green ]\n]')),
-						_1: {
-							ctor: '::',
-							_0: A3(
-								_mdgriffith$style_elements$Element$el,
-								_lucamug$elm_style_elements_examples$Main$Title,
-								{
-									ctor: '::',
-									_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
-									_1: {ctor: '[]'}
-								},
-								_mdgriffith$style_elements$Element$text('Shadows')),
-							_1: {
-								ctor: '::',
-								_0: A3(
-									_mdgriffith$style_elements$Element$el,
-									_lucamug$elm_style_elements_examples$Main$Example5,
-									{
-										ctor: '::',
-										_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
-										_1: {ctor: '[]'}
-									},
-									_mdgriffith$style_elements$Element$text('[ Shadow.glow Color.red 5\n]')),
-								_1: {ctor: '[]'}
-							}
-						}
-					}
+						_mdgriffith$style_elements$Element$text('Border 3')),
+					_1: {ctor: '[]'}
 				}
 			}
-		}
-	});
-var _lucamug$elm_style_elements_examples$Main$exampleBackgrounds = A3(
-	_mdgriffith$style_elements$Element$column,
-	_lucamug$elm_style_elements_examples$Main$Main,
-	{
-		ctor: '::',
-		_0: _mdgriffith$style_elements$Element_Attributes$scrollbars,
-		_1: {
+		})
+};
+var _lucamug$elm_style_elements_examples$Main$exampleBackgrounds = {
+	text: '\n        column Main\n            [ scrollbars, spacing 20, padding 20 ]\n            [ el Example4 [ padding 20 ] <|\n                text \"Background 1\"\n            ]\n        ',
+	source: A3(
+		_mdgriffith$style_elements$Element$column,
+		_lucamug$elm_style_elements_examples$Main$Main,
+		{
 			ctor: '::',
-			_0: _mdgriffith$style_elements$Element_Attributes$spacing(20),
+			_0: _mdgriffith$style_elements$Element_Attributes$scrollbars,
 			_1: {
 				ctor: '::',
-				_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
-				_1: {ctor: '[]'}
+				_0: _mdgriffith$style_elements$Element_Attributes$spacing(20),
+				_1: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
+					_1: {ctor: '[]'}
+				}
 			}
-		}
-	},
-	{
-		ctor: '::',
-		_0: A3(
-			_mdgriffith$style_elements$Element$el,
-			_lucamug$elm_style_elements_examples$Main$Example4,
-			{
-				ctor: '::',
-				_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
-				_1: {ctor: '[]'}
-			},
-			_mdgriffith$style_elements$Element$text('[ Background.gradient 0 [ Background.step Color.blue, Background.step Color.green ]\n]')),
-		_1: {ctor: '[]'}
-	});
-var _lucamug$elm_style_elements_examples$Main$exampleShadows = A3(
-	_mdgriffith$style_elements$Element$column,
-	_lucamug$elm_style_elements_examples$Main$Main,
-	{
-		ctor: '::',
-		_0: _mdgriffith$style_elements$Element_Attributes$scrollbars,
-		_1: {
+		},
+		{
 			ctor: '::',
-			_0: _mdgriffith$style_elements$Element_Attributes$spacing(20),
+			_0: A3(
+				_mdgriffith$style_elements$Element$el,
+				_lucamug$elm_style_elements_examples$Main$Example4,
+				{
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
+					_1: {ctor: '[]'}
+				},
+				_mdgriffith$style_elements$Element$text('Background 1')),
+			_1: {ctor: '[]'}
+		})
+};
+var _lucamug$elm_style_elements_examples$Main$exampleShadows = {
+	text: '\n        column Main\n            [ scrollbars, spacing 20, padding 20 ]\n            [ el Example5 [ padding 20 ] <|\n                text \"Shadow 1\"\n            ]\n     ',
+	source: A3(
+		_mdgriffith$style_elements$Element$column,
+		_lucamug$elm_style_elements_examples$Main$Main,
+		{
+			ctor: '::',
+			_0: _mdgriffith$style_elements$Element_Attributes$scrollbars,
 			_1: {
 				ctor: '::',
-				_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
-				_1: {ctor: '[]'}
+				_0: _mdgriffith$style_elements$Element_Attributes$spacing(20),
+				_1: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
+					_1: {ctor: '[]'}
+				}
 			}
-		}
-	},
-	{
-		ctor: '::',
-		_0: A3(
-			_mdgriffith$style_elements$Element$el,
-			_lucamug$elm_style_elements_examples$Main$Example5,
-			{
-				ctor: '::',
-				_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
-				_1: {ctor: '[]'}
-			},
-			_mdgriffith$style_elements$Element$text('[ Shadow.glow Color.red 5\n]')),
-		_1: {ctor: '[]'}
-	});
+		},
+		{
+			ctor: '::',
+			_0: A3(
+				_mdgriffith$style_elements$Element$el,
+				_lucamug$elm_style_elements_examples$Main$Example5,
+				{
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
+					_1: {ctor: '[]'}
+				},
+				_mdgriffith$style_elements$Element$text('Shadow 1')),
+			_1: {ctor: '[]'}
+		})
+};
 var _lucamug$elm_style_elements_examples$Main$None = {ctor: 'None'};
 var _lucamug$elm_style_elements_examples$Main$stylesheet = _mdgriffith$style_elements$Style$styleSheet(
 	{
@@ -24385,7 +24320,7 @@ var _lucamug$elm_style_elements_examples$Main$stylesheet = _mdgriffith$style_ele
 					_0: _mdgriffith$style_elements$Style_Color$text(_lucamug$elm_style_elements_examples$Main$colors.text),
 					_1: {
 						ctor: '::',
-						_0: _mdgriffith$style_elements$Style_Font$size(20),
+						_0: _mdgriffith$style_elements$Style_Font$size(16),
 						_1: {ctor: '[]'}
 					}
 				}),
@@ -24403,7 +24338,11 @@ var _lucamug$elm_style_elements_examples$Main$stylesheet = _mdgriffith$style_ele
 							_1: {
 								ctor: '::',
 								_0: _mdgriffith$style_elements$Style_Border$bottom(2),
-								_1: {ctor: '[]'}
+								_1: {
+									ctor: '::',
+									_0: _mdgriffith$style_elements$Style_Color$border(_lucamug$elm_style_elements_examples$Main$colors.text),
+									_1: {ctor: '[]'}
+								}
 							}
 						}
 					}),
@@ -24414,7 +24353,7 @@ var _lucamug$elm_style_elements_examples$Main$stylesheet = _mdgriffith$style_ele
 						_lucamug$elm_style_elements_examples$Main$Menu,
 						{
 							ctor: '::',
-							_0: _mdgriffith$style_elements$Style_Color$text(_elm_lang$core$Color$brown),
+							_0: _mdgriffith$style_elements$Style_Color$border(_lucamug$elm_style_elements_examples$Main$colors.text),
 							_1: {
 								ctor: '::',
 								_0: _mdgriffith$style_elements$Style_Border$right(2),
@@ -24425,63 +24364,64 @@ var _lucamug$elm_style_elements_examples$Main$stylesheet = _mdgriffith$style_ele
 						ctor: '::',
 						_0: A2(
 							_mdgriffith$style_elements$Style$style,
-							_lucamug$elm_style_elements_examples$Main$BackgroundPurple,
+							_lucamug$elm_style_elements_examples$Main$Code,
 							{
 								ctor: '::',
-								_0: _mdgriffith$style_elements$Style_Color$background(_elm_lang$core$Color$purple),
-								_1: {ctor: '[]'}
+								_0: _mdgriffith$style_elements$Style_Color$background(_lucamug$elm_style_elements_examples$Main$colors.codeBackground),
+								_1: {
+									ctor: '::',
+									_0: _mdgriffith$style_elements$Style_Border$bottom(2),
+									_1: {
+										ctor: '::',
+										_0: _mdgriffith$style_elements$Style_Font$typeface(
+											{
+												ctor: '::',
+												_0: _mdgriffith$style_elements$Style_Font$monospace,
+												_1: {ctor: '[]'}
+											}),
+										_1: {ctor: '[]'}
+									}
+								}
 							}),
 						_1: {
 							ctor: '::',
 							_0: A2(
 								_mdgriffith$style_elements$Style$style,
-								_lucamug$elm_style_elements_examples$Main$Example1,
+								_lucamug$elm_style_elements_examples$Main$BackgroundPurple,
 								{
 									ctor: '::',
-									_0: _mdgriffith$style_elements$Style_Border$all(1),
-									_1: {
-										ctor: '::',
-										_0: _mdgriffith$style_elements$Style_Color$border(_elm_lang$core$Color$red),
-										_1: {ctor: '[]'}
-									}
+									_0: _mdgriffith$style_elements$Style_Color$background(_elm_lang$core$Color$purple),
+									_1: {ctor: '[]'}
 								}),
 							_1: {
 								ctor: '::',
 								_0: A2(
 									_mdgriffith$style_elements$Style$style,
-									_lucamug$elm_style_elements_examples$Main$Example2,
+									_lucamug$elm_style_elements_examples$Main$Example1,
 									{
 										ctor: '::',
-										_0: _mdgriffith$style_elements$Style_Border$left(10),
+										_0: _mdgriffith$style_elements$Style_Border$all(1),
 										_1: {
 											ctor: '::',
-											_0: _mdgriffith$style_elements$Style_Border$dashed,
-											_1: {
-												ctor: '::',
-												_0: _mdgriffith$style_elements$Style_Color$border(_elm_lang$core$Color$green),
-												_1: {ctor: '[]'}
-											}
+											_0: _mdgriffith$style_elements$Style_Color$border(_elm_lang$core$Color$red),
+											_1: {ctor: '[]'}
 										}
 									}),
 								_1: {
 									ctor: '::',
 									_0: A2(
 										_mdgriffith$style_elements$Style$style,
-										_lucamug$elm_style_elements_examples$Main$Example3,
+										_lucamug$elm_style_elements_examples$Main$Example2,
 										{
 											ctor: '::',
-											_0: _mdgriffith$style_elements$Style_Border$all(5),
+											_0: _mdgriffith$style_elements$Style_Border$left(10),
 											_1: {
 												ctor: '::',
-												_0: _mdgriffith$style_elements$Style_Border$rounded(30),
+												_0: _mdgriffith$style_elements$Style_Border$dashed,
 												_1: {
 													ctor: '::',
-													_0: _mdgriffith$style_elements$Style_Border$dotted,
-													_1: {
-														ctor: '::',
-														_0: _mdgriffith$style_elements$Style_Color$border(_elm_lang$core$Color$lightOrange),
-														_1: {ctor: '[]'}
-													}
+													_0: _mdgriffith$style_elements$Style_Color$border(_elm_lang$core$Color$green),
+													_1: {ctor: '[]'}
 												}
 											}
 										}),
@@ -24489,159 +24429,204 @@ var _lucamug$elm_style_elements_examples$Main$stylesheet = _mdgriffith$style_ele
 										ctor: '::',
 										_0: A2(
 											_mdgriffith$style_elements$Style$style,
-											_lucamug$elm_style_elements_examples$Main$Example4,
+											_lucamug$elm_style_elements_examples$Main$Example3,
 											{
 												ctor: '::',
-												_0: A2(
-													_mdgriffith$style_elements$Style_Background$gradient,
-													0,
-													{
+												_0: _mdgriffith$style_elements$Style_Border$all(5),
+												_1: {
+													ctor: '::',
+													_0: _mdgriffith$style_elements$Style_Border$rounded(30),
+													_1: {
 														ctor: '::',
-														_0: _mdgriffith$style_elements$Style_Background$step(_elm_lang$core$Color$blue),
+														_0: _mdgriffith$style_elements$Style_Border$dotted,
 														_1: {
 															ctor: '::',
-															_0: _mdgriffith$style_elements$Style_Background$step(_elm_lang$core$Color$green),
+															_0: _mdgriffith$style_elements$Style_Color$border(_elm_lang$core$Color$lightOrange),
 															_1: {ctor: '[]'}
 														}
-													}),
-												_1: {ctor: '[]'}
+													}
+												}
 											}),
 										_1: {
 											ctor: '::',
 											_0: A2(
 												_mdgriffith$style_elements$Style$style,
-												_lucamug$elm_style_elements_examples$Main$Example5,
+												_lucamug$elm_style_elements_examples$Main$Clickable,
 												{
 													ctor: '::',
-													_0: A2(_mdgriffith$style_elements$Style_Shadow$glow, _elm_lang$core$Color$red, 5),
+													_0: _mdgriffith$style_elements$Style$cursor('pointer'),
 													_1: {ctor: '[]'}
 												}),
 											_1: {
 												ctor: '::',
 												_0: A2(
 													_mdgriffith$style_elements$Style$style,
-													_lucamug$elm_style_elements_examples$Main$ChatContainer,
+													_lucamug$elm_style_elements_examples$Main$Example4,
 													{
 														ctor: '::',
-														_0: _mdgriffith$style_elements$Style_Color$text(_elm_lang$core$Color$black),
-														_1: {
-															ctor: '::',
-															_0: _mdgriffith$style_elements$Style_Color$background(_lucamug$elm_style_elements_examples$Main$colors.blue2),
-															_1: {
+														_0: A2(
+															_mdgriffith$style_elements$Style_Background$gradient,
+															0,
+															{
 																ctor: '::',
-																_0: _mdgriffith$style_elements$Style_Color$border(_elm_lang$core$Color$lightGrey),
-																_1: {ctor: '[]'}
-															}
-														}
+																_0: _mdgriffith$style_elements$Style_Background$step(_elm_lang$core$Color$blue),
+																_1: {
+																	ctor: '::',
+																	_0: _mdgriffith$style_elements$Style_Background$step(_elm_lang$core$Color$green),
+																	_1: {ctor: '[]'}
+																}
+															}),
+														_1: {ctor: '[]'}
 													}),
 												_1: {
 													ctor: '::',
 													_0: A2(
 														_mdgriffith$style_elements$Style$style,
-														_lucamug$elm_style_elements_examples$Main$ChatChat,
+														_lucamug$elm_style_elements_examples$Main$Example5,
 														{
 															ctor: '::',
-															_0: _mdgriffith$style_elements$Style_Color$background(_lucamug$elm_style_elements_examples$Main$colors.blue1),
+															_0: A2(_mdgriffith$style_elements$Style_Shadow$glow, _elm_lang$core$Color$red, 5),
 															_1: {ctor: '[]'}
 														}),
 													_1: {
 														ctor: '::',
 														_0: A2(
 															_mdgriffith$style_elements$Style$style,
-															_lucamug$elm_style_elements_examples$Main$ChatNavbar,
+															_lucamug$elm_style_elements_examples$Main$ChatContainer,
 															{
 																ctor: '::',
-																_0: _mdgriffith$style_elements$Style_Color$background(_lucamug$elm_style_elements_examples$Main$colors.mauve),
-																_1: {ctor: '[]'}
+																_0: _mdgriffith$style_elements$Style_Color$text(_elm_lang$core$Color$black),
+																_1: {
+																	ctor: '::',
+																	_0: _mdgriffith$style_elements$Style_Color$background(_lucamug$elm_style_elements_examples$Main$colors.blue2),
+																	_1: {
+																		ctor: '::',
+																		_0: _mdgriffith$style_elements$Style_Color$border(_elm_lang$core$Color$lightGrey),
+																		_1: {ctor: '[]'}
+																	}
+																}
 															}),
 														_1: {
 															ctor: '::',
 															_0: A2(
 																_mdgriffith$style_elements$Style$style,
-																_lucamug$elm_style_elements_examples$Main$ChatSidebar,
+																_lucamug$elm_style_elements_examples$Main$ChatChat,
 																{
 																	ctor: '::',
-																	_0: _mdgriffith$style_elements$Style_Color$background(_lucamug$elm_style_elements_examples$Main$colors.green1),
+																	_0: _mdgriffith$style_elements$Style_Color$background(_lucamug$elm_style_elements_examples$Main$colors.blue1),
 																	_1: {ctor: '[]'}
 																}),
 															_1: {
 																ctor: '::',
 																_0: A2(
 																	_mdgriffith$style_elements$Style$style,
-																	_lucamug$elm_style_elements_examples$Main$ChatInspector,
+																	_lucamug$elm_style_elements_examples$Main$ChatNavbar,
 																	{
 																		ctor: '::',
-																		_0: _mdgriffith$style_elements$Style_Color$background(_lucamug$elm_style_elements_examples$Main$colors.green2),
+																		_0: _mdgriffith$style_elements$Style_Color$background(_lucamug$elm_style_elements_examples$Main$colors.mauve),
 																		_1: {ctor: '[]'}
 																	}),
 																_1: {
 																	ctor: '::',
 																	_0: A2(
 																		_mdgriffith$style_elements$Style$style,
-																		_lucamug$elm_style_elements_examples$Main$ChatMessageBox,
+																		_lucamug$elm_style_elements_examples$Main$ChatSidebar,
 																		{
 																			ctor: '::',
-																			_0: _mdgriffith$style_elements$Style_Color$background(_lucamug$elm_style_elements_examples$Main$colors.blue2),
+																			_0: _mdgriffith$style_elements$Style_Color$background(_lucamug$elm_style_elements_examples$Main$colors.green1),
 																			_1: {ctor: '[]'}
 																		}),
 																	_1: {
 																		ctor: '::',
 																		_0: A2(
 																			_mdgriffith$style_elements$Style$style,
-																			_lucamug$elm_style_elements_examples$Main$ChatMain,
+																			_lucamug$elm_style_elements_examples$Main$ChatInspector,
 																			{
 																				ctor: '::',
-																				_0: _mdgriffith$style_elements$Style_Font$typeface(
-																					{
-																						ctor: '::',
-																						_0: _mdgriffith$style_elements$Style_Font$font('helvetica'),
-																						_1: {ctor: '[]'}
-																					}),
+																				_0: _mdgriffith$style_elements$Style_Color$background(_lucamug$elm_style_elements_examples$Main$colors.green2),
 																				_1: {ctor: '[]'}
 																			}),
 																		_1: {
 																			ctor: '::',
 																			_0: A2(
 																				_mdgriffith$style_elements$Style$style,
-																				_lucamug$elm_style_elements_examples$Main$ChatH3,
+																				_lucamug$elm_style_elements_examples$Main$ChatMessageBox,
 																				{
 																					ctor: '::',
-																					_0: _mdgriffith$style_elements$Style_Font$size(20),
-																					_1: {
-																						ctor: '::',
-																						_0: _mdgriffith$style_elements$Style_Font$weight(400),
-																						_1: {ctor: '[]'}
-																					}
+																					_0: _mdgriffith$style_elements$Style_Color$background(_lucamug$elm_style_elements_examples$Main$colors.blue2),
+																					_1: {ctor: '[]'}
 																				}),
 																			_1: {
 																				ctor: '::',
 																				_0: A2(
 																					_mdgriffith$style_elements$Style$style,
-																					_lucamug$elm_style_elements_examples$Main$MyGridStyle,
+																					_lucamug$elm_style_elements_examples$Main$ChatMain,
 																					{
 																						ctor: '::',
-																						_0: _mdgriffith$style_elements$Style_Color$border(_elm_lang$core$Color$green),
-																						_1: {
-																							ctor: '::',
-																							_0: _mdgriffith$style_elements$Style_Border$all(3),
-																							_1: {ctor: '[]'}
-																						}
+																						_0: _mdgriffith$style_elements$Style_Font$typeface(
+																							{
+																								ctor: '::',
+																								_0: _mdgriffith$style_elements$Style_Font$font('helvetica'),
+																								_1: {ctor: '[]'}
+																							}),
+																						_1: {ctor: '[]'}
 																					}),
 																				_1: {
 																					ctor: '::',
 																					_0: A2(
 																						_mdgriffith$style_elements$Style$style,
-																						_lucamug$elm_style_elements_examples$Main$Box,
+																						_lucamug$elm_style_elements_examples$Main$ChatH3,
 																						{
 																							ctor: '::',
-																							_0: _mdgriffith$style_elements$Style_Color$border(_elm_lang$core$Color$red),
+																							_0: _mdgriffith$style_elements$Style_Font$size(20),
 																							_1: {
 																								ctor: '::',
-																								_0: _mdgriffith$style_elements$Style_Border$all(3),
+																								_0: _mdgriffith$style_elements$Style_Font$weight(400),
 																								_1: {ctor: '[]'}
 																							}
 																						}),
-																					_1: {ctor: '[]'}
+																					_1: {
+																						ctor: '::',
+																						_0: A2(
+																							_mdgriffith$style_elements$Style$style,
+																							_lucamug$elm_style_elements_examples$Main$MyGridStyle,
+																							{
+																								ctor: '::',
+																								_0: _mdgriffith$style_elements$Style_Color$border(_elm_lang$core$Color$green),
+																								_1: {
+																									ctor: '::',
+																									_0: _mdgriffith$style_elements$Style_Border$all(3),
+																									_1: {ctor: '[]'}
+																								}
+																							}),
+																						_1: {
+																							ctor: '::',
+																							_0: A2(
+																								_mdgriffith$style_elements$Style$style,
+																								_lucamug$elm_style_elements_examples$Main$Box,
+																								{
+																									ctor: '::',
+																									_0: _mdgriffith$style_elements$Style_Color$border(_elm_lang$core$Color$red),
+																									_1: {
+																										ctor: '::',
+																										_0: _mdgriffith$style_elements$Style_Border$all(3),
+																										_1: {ctor: '[]'}
+																									}
+																								}),
+																							_1: {
+																								ctor: '::',
+																								_0: A2(
+																									_mdgriffith$style_elements$Style$style,
+																									_lucamug$elm_style_elements_examples$Main$LightBackground,
+																									{
+																										ctor: '::',
+																										_0: _mdgriffith$style_elements$Style_Color$background(_elm_lang$core$Color$lightYellow),
+																										_1: {ctor: '[]'}
+																									}),
+																								_1: {ctor: '[]'}
+																							}
+																						}
+																					}
 																				}
 																			}
 																		}
@@ -24662,336 +24647,209 @@ var _lucamug$elm_style_elements_examples$Main$stylesheet = _mdgriffith$style_ele
 			}
 		}
 	});
-var _lucamug$elm_style_elements_examples$Main$welcome = A3(
-	_mdgriffith$style_elements$Element$el,
-	_lucamug$elm_style_elements_examples$Main$None,
-	{
-		ctor: '::',
-		_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
-		_1: {ctor: '[]'}
-	},
-	_mdgriffith$style_elements$Element$text('Welcome'));
-var _lucamug$elm_style_elements_examples$Main$example1 = A3(
-	_mdgriffith$style_elements$Element$row,
-	_lucamug$elm_style_elements_examples$Main$None,
-	{
-		ctor: '::',
-		_0: _mdgriffith$style_elements$Element_Attributes$scrollbars,
-		_1: {
+var _lucamug$elm_style_elements_examples$Main$welcome = {
+	text: '\n        el None [ padding 20 ] <|\n            text \"Welcome\"\n    ',
+	source: A3(
+		_mdgriffith$style_elements$Element$el,
+		_lucamug$elm_style_elements_examples$Main$None,
+		{
 			ctor: '::',
-			_0: _mdgriffith$style_elements$Element_Attributes$spacing(20),
+			_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
+			_1: {ctor: '[]'}
+		},
+		_mdgriffith$style_elements$Element$text('Welcome'))
+};
+var _lucamug$elm_style_elements_examples$Main$exampleChat = {
+	text: '\n        column Main\n            [ height fill, width fill ]\n            [ el ChatNavbar [ padding 20 ] (text \"Navbar\")\n            , row None\n                [ height fill\n                , width fill\n                ]\n                [ column ChatSidebar\n                    [ padding 20\n                    , alignLeft\n                    , width <| px 300\n                    ]\n                    [ el ChatH3 [] (text \"Channels\") ]\n                , column None\n                    [ alignLeft\n                    , width fill\n                    ]\n                    [ column\n                        ChatChat\n                        [ width fill\n                        , alignLeft\n                        , yScrollbar\n                        , padding 20\n                        , spacing 10\n                        ]\n                        (List.map\n                            (\\n ->\n                                el None\n                                    []\n                                    (text <| \"message\" ++ toString n)\n                            )\n                         <|\n                            List.range 1 100\n                        )\n                    , el ChatMessageBox\n                        [ height <| px 200\n                        , width fill\n                        , verticalCenter\n                        , padding 20\n                        ]\n                        (text \"Message box\")\n                    ]\n                , column ChatInspector\n                    [ padding 20\n                    , alignLeft\n                    , width <| px 200\n                    , height fill\n                    ]\n                    [ text \"Inspector\" ]\n                ]\n            ]\n     ',
+	source: A3(
+		_mdgriffith$style_elements$Element$column,
+		_lucamug$elm_style_elements_examples$Main$Main,
+		{
+			ctor: '::',
+			_0: _mdgriffith$style_elements$Element_Attributes$height(_mdgriffith$style_elements$Element_Attributes$fill),
 			_1: {
 				ctor: '::',
-				_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
+				_0: _mdgriffith$style_elements$Element_Attributes$width(_mdgriffith$style_elements$Element_Attributes$fill),
 				_1: {ctor: '[]'}
 			}
-		}
-	},
-	{
-		ctor: '::',
-		_0: A3(
-			_mdgriffith$style_elements$Element$el,
-			_lucamug$elm_style_elements_examples$Main$Example1,
-			{
-				ctor: '::',
-				_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
-				_1: {
-					ctor: '::',
-					_0: _mdgriffith$style_elements$Element_Attributes$width(_mdgriffith$style_elements$Element_Attributes$fill),
-					_1: {ctor: '[]'}
-				}
-			},
-			_mdgriffith$style_elements$Element$text('text')),
-		_1: {
+		},
+		{
 			ctor: '::',
 			_0: A3(
 				_mdgriffith$style_elements$Element$el,
-				_lucamug$elm_style_elements_examples$Main$Example1,
+				_lucamug$elm_style_elements_examples$Main$ChatNavbar,
 				{
 					ctor: '::',
 					_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
-					_1: {
-						ctor: '::',
-						_0: _mdgriffith$style_elements$Element_Attributes$width(_mdgriffith$style_elements$Element_Attributes$fill),
-						_1: {ctor: '[]'}
-					}
+					_1: {ctor: '[]'}
 				},
-				_mdgriffith$style_elements$Element$text('text')),
+				_mdgriffith$style_elements$Element$text('Navbar')),
 			_1: {
 				ctor: '::',
 				_0: A3(
-					_mdgriffith$style_elements$Element$el,
-					_lucamug$elm_style_elements_examples$Main$Example1,
+					_mdgriffith$style_elements$Element$row,
+					_lucamug$elm_style_elements_examples$Main$None,
 					{
 						ctor: '::',
-						_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
+						_0: _mdgriffith$style_elements$Element_Attributes$height(_mdgriffith$style_elements$Element_Attributes$fill),
 						_1: {
 							ctor: '::',
 							_0: _mdgriffith$style_elements$Element_Attributes$width(_mdgriffith$style_elements$Element_Attributes$fill),
 							_1: {ctor: '[]'}
 						}
 					},
-					_mdgriffith$style_elements$Element$text('text')),
-				_1: {
-					ctor: '::',
-					_0: A3(
-						_mdgriffith$style_elements$Element$el,
-						_lucamug$elm_style_elements_examples$Main$Example1,
-						{
-							ctor: '::',
-							_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
-							_1: {
-								ctor: '::',
-								_0: _mdgriffith$style_elements$Element_Attributes$width(_mdgriffith$style_elements$Element_Attributes$fill),
-								_1: {ctor: '[]'}
-							}
-						},
-						_mdgriffith$style_elements$Element$text('text')),
-					_1: {
+					{
 						ctor: '::',
 						_0: A3(
-							_mdgriffith$style_elements$Element$el,
-							_lucamug$elm_style_elements_examples$Main$Example1,
+							_mdgriffith$style_elements$Element$column,
+							_lucamug$elm_style_elements_examples$Main$ChatSidebar,
 							{
 								ctor: '::',
 								_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
 								_1: {
 									ctor: '::',
-									_0: _mdgriffith$style_elements$Element_Attributes$width(_mdgriffith$style_elements$Element_Attributes$fill),
-									_1: {ctor: '[]'}
+									_0: _mdgriffith$style_elements$Element_Attributes$alignLeft,
+									_1: {
+										ctor: '::',
+										_0: _mdgriffith$style_elements$Element_Attributes$width(
+											_mdgriffith$style_elements$Element_Attributes$px(300)),
+										_1: {ctor: '[]'}
+									}
 								}
 							},
-							_mdgriffith$style_elements$Element$text('text')),
+							{
+								ctor: '::',
+								_0: A3(
+									_mdgriffith$style_elements$Element$el,
+									_lucamug$elm_style_elements_examples$Main$ChatH3,
+									{ctor: '[]'},
+									_mdgriffith$style_elements$Element$text('Channels')),
+								_1: {ctor: '[]'}
+							}),
 						_1: {
 							ctor: '::',
 							_0: A3(
-								_mdgriffith$style_elements$Element$el,
-								_lucamug$elm_style_elements_examples$Main$Example1,
+								_mdgriffith$style_elements$Element$column,
+								_lucamug$elm_style_elements_examples$Main$None,
 								{
 									ctor: '::',
-									_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
+									_0: _mdgriffith$style_elements$Element_Attributes$alignLeft,
 									_1: {
 										ctor: '::',
 										_0: _mdgriffith$style_elements$Element_Attributes$width(_mdgriffith$style_elements$Element_Attributes$fill),
 										_1: {ctor: '[]'}
 									}
 								},
-								_mdgriffith$style_elements$Element$text('text')),
+								{
+									ctor: '::',
+									_0: A3(
+										_mdgriffith$style_elements$Element$column,
+										_lucamug$elm_style_elements_examples$Main$ChatChat,
+										{
+											ctor: '::',
+											_0: _mdgriffith$style_elements$Element_Attributes$width(_mdgriffith$style_elements$Element_Attributes$fill),
+											_1: {
+												ctor: '::',
+												_0: _mdgriffith$style_elements$Element_Attributes$alignLeft,
+												_1: {
+													ctor: '::',
+													_0: _mdgriffith$style_elements$Element_Attributes$yScrollbar,
+													_1: {
+														ctor: '::',
+														_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
+														_1: {
+															ctor: '::',
+															_0: _mdgriffith$style_elements$Element_Attributes$spacing(10),
+															_1: {ctor: '[]'}
+														}
+													}
+												}
+											}
+										},
+										A2(
+											_elm_lang$core$List$map,
+											function (n) {
+												return A3(
+													_mdgriffith$style_elements$Element$el,
+													_lucamug$elm_style_elements_examples$Main$None,
+													{ctor: '[]'},
+													_mdgriffith$style_elements$Element$text(
+														A2(
+															_elm_lang$core$Basics_ops['++'],
+															'message',
+															_elm_lang$core$Basics$toString(n))));
+											},
+											A2(_elm_lang$core$List$range, 1, 100))),
+									_1: {
+										ctor: '::',
+										_0: A3(
+											_mdgriffith$style_elements$Element$el,
+											_lucamug$elm_style_elements_examples$Main$ChatMessageBox,
+											{
+												ctor: '::',
+												_0: _mdgriffith$style_elements$Element_Attributes$height(
+													_mdgriffith$style_elements$Element_Attributes$px(200)),
+												_1: {
+													ctor: '::',
+													_0: _mdgriffith$style_elements$Element_Attributes$width(_mdgriffith$style_elements$Element_Attributes$fill),
+													_1: {
+														ctor: '::',
+														_0: _mdgriffith$style_elements$Element_Attributes$verticalCenter,
+														_1: {
+															ctor: '::',
+															_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
+															_1: {ctor: '[]'}
+														}
+													}
+												}
+											},
+											_mdgriffith$style_elements$Element$text('Message box')),
+										_1: {ctor: '[]'}
+									}
+								}),
 							_1: {
 								ctor: '::',
 								_0: A3(
-									_mdgriffith$style_elements$Element$el,
-									_lucamug$elm_style_elements_examples$Main$Example1,
+									_mdgriffith$style_elements$Element$column,
+									_lucamug$elm_style_elements_examples$Main$ChatInspector,
 									{
 										ctor: '::',
 										_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
 										_1: {
 											ctor: '::',
-											_0: _mdgriffith$style_elements$Element_Attributes$width(_mdgriffith$style_elements$Element_Attributes$fill),
-											_1: {ctor: '[]'}
+											_0: _mdgriffith$style_elements$Element_Attributes$alignLeft,
+											_1: {
+												ctor: '::',
+												_0: _mdgriffith$style_elements$Element_Attributes$width(
+													_mdgriffith$style_elements$Element_Attributes$px(200)),
+												_1: {
+													ctor: '::',
+													_0: _mdgriffith$style_elements$Element_Attributes$height(_mdgriffith$style_elements$Element_Attributes$fill),
+													_1: {ctor: '[]'}
+												}
+											}
 										}
 									},
-									_mdgriffith$style_elements$Element$text('text')),
-								_1: {
-									ctor: '::',
-									_0: A3(
-										_mdgriffith$style_elements$Element$el,
-										_lucamug$elm_style_elements_examples$Main$Example1,
-										{
-											ctor: '::',
-											_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
-											_1: {
-												ctor: '::',
-												_0: _mdgriffith$style_elements$Element_Attributes$width(_mdgriffith$style_elements$Element_Attributes$fill),
-												_1: {ctor: '[]'}
-											}
-										},
-										_mdgriffith$style_elements$Element$text('text')),
-									_1: {
+									{
 										ctor: '::',
-										_0: A3(
-											_mdgriffith$style_elements$Element$el,
-											_lucamug$elm_style_elements_examples$Main$Example1,
-											{
-												ctor: '::',
-												_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
-												_1: {
-													ctor: '::',
-													_0: _mdgriffith$style_elements$Element_Attributes$width(_mdgriffith$style_elements$Element_Attributes$fill),
-													_1: {ctor: '[]'}
-												}
-											},
-											_mdgriffith$style_elements$Element$text('text')),
-										_1: {
-											ctor: '::',
-											_0: A3(
-												_mdgriffith$style_elements$Element$el,
-												_lucamug$elm_style_elements_examples$Main$Example1,
-												{
-													ctor: '::',
-													_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
-													_1: {
-														ctor: '::',
-														_0: _mdgriffith$style_elements$Element_Attributes$width(_mdgriffith$style_elements$Element_Attributes$fill),
-														_1: {ctor: '[]'}
-													}
-												},
-												_mdgriffith$style_elements$Element$text('text')),
-											_1: {
-												ctor: '::',
-												_0: A3(
-													_mdgriffith$style_elements$Element$el,
-													_lucamug$elm_style_elements_examples$Main$Example1,
-													{
-														ctor: '::',
-														_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
-														_1: {
-															ctor: '::',
-															_0: _mdgriffith$style_elements$Element_Attributes$width(_mdgriffith$style_elements$Element_Attributes$fill),
-															_1: {ctor: '[]'}
-														}
-													},
-													_mdgriffith$style_elements$Element$text('text')),
-												_1: {
-													ctor: '::',
-													_0: A3(
-														_mdgriffith$style_elements$Element$el,
-														_lucamug$elm_style_elements_examples$Main$Example1,
-														{
-															ctor: '::',
-															_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
-															_1: {
-																ctor: '::',
-																_0: _mdgriffith$style_elements$Element_Attributes$width(_mdgriffith$style_elements$Element_Attributes$fill),
-																_1: {ctor: '[]'}
-															}
-														},
-														_mdgriffith$style_elements$Element$text('text')),
-													_1: {ctor: '[]'}
-												}
-											}
-										}
-									}
-								}
+										_0: _mdgriffith$style_elements$Element$text('Inspector'),
+										_1: {ctor: '[]'}
+									}),
+								_1: {ctor: '[]'}
 							}
 						}
-					}
-				}
+					}),
+				_1: {ctor: '[]'}
 			}
-		}
-	});
-var _lucamug$elm_style_elements_examples$Main$chatMessage = function (n) {
-	return A3(
-		_mdgriffith$style_elements$Element$el,
-		_lucamug$elm_style_elements_examples$Main$None,
-		{
-			ctor: '::',
-			_0: _mdgriffith$style_elements$Element_Attributes$padding(10),
-			_1: {ctor: '[]'}
-		},
-		_mdgriffith$style_elements$Element$text(
-			A2(
-				_elm_lang$core$Basics_ops['++'],
-				'message',
-				_elm_lang$core$Basics$toString(n))));
+		})
 };
-var _lucamug$elm_style_elements_examples$Main$chatMessages = A3(
-	_mdgriffith$style_elements$Element$column,
-	_lucamug$elm_style_elements_examples$Main$ChatChat,
-	{
-		ctor: '::',
-		_0: _mdgriffith$style_elements$Element_Attributes$width(_mdgriffith$style_elements$Element_Attributes$fill),
-		_1: {
-			ctor: '::',
-			_0: _mdgriffith$style_elements$Element_Attributes$alignLeft,
-			_1: {
-				ctor: '::',
-				_0: _mdgriffith$style_elements$Element_Attributes$yScrollbar,
-				_1: {ctor: '[]'}
-			}
-		}
-	},
-	A2(
-		_elm_lang$core$List$map,
-		_lucamug$elm_style_elements_examples$Main$chatMessage,
-		A2(_elm_lang$core$List$range, 1, 100)));
-var _lucamug$elm_style_elements_examples$Main$chatBody = A3(
-	_mdgriffith$style_elements$Element$column,
-	_lucamug$elm_style_elements_examples$Main$None,
-	{
-		ctor: '::',
-		_0: _mdgriffith$style_elements$Element_Attributes$alignLeft,
-		_1: {
-			ctor: '::',
-			_0: _mdgriffith$style_elements$Element_Attributes$width(_mdgriffith$style_elements$Element_Attributes$fill),
-			_1: {ctor: '[]'}
-		}
-	},
-	{
-		ctor: '::',
-		_0: _lucamug$elm_style_elements_examples$Main$chatMessages,
-		_1: {
-			ctor: '::',
-			_0: _lucamug$elm_style_elements_examples$Main$chatMessageBox,
-			_1: {ctor: '[]'}
-		}
-	});
-var _lucamug$elm_style_elements_examples$Main$exampleChat = A3(
-	_mdgriffith$style_elements$Element$column,
-	_lucamug$elm_style_elements_examples$Main$Main,
-	{
-		ctor: '::',
-		_0: _mdgriffith$style_elements$Element_Attributes$height(_mdgriffith$style_elements$Element_Attributes$fill),
-		_1: {ctor: '[]'}
-	},
-	{
-		ctor: '::',
-		_0: A3(
-			_mdgriffith$style_elements$Element$el,
-			_lucamug$elm_style_elements_examples$Main$ChatNavbar,
-			{
-				ctor: '::',
-				_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
-				_1: {ctor: '[]'}
-			},
-			_mdgriffith$style_elements$Element$text('Navbar')),
-		_1: {
-			ctor: '::',
-			_0: A3(
-				_mdgriffith$style_elements$Element$row,
-				_lucamug$elm_style_elements_examples$Main$None,
-				{
-					ctor: '::',
-					_0: _mdgriffith$style_elements$Element_Attributes$height(_mdgriffith$style_elements$Element_Attributes$fill),
-					_1: {
-						ctor: '::',
-						_0: _mdgriffith$style_elements$Element_Attributes$width(_mdgriffith$style_elements$Element_Attributes$fill),
-						_1: {ctor: '[]'}
-					}
-				},
-				{
-					ctor: '::',
-					_0: _lucamug$elm_style_elements_examples$Main$chatSidebar,
-					_1: {
-						ctor: '::',
-						_0: _lucamug$elm_style_elements_examples$Main$chatBody,
-						_1: {
-							ctor: '::',
-							_0: _lucamug$elm_style_elements_examples$Main$chatInspector,
-							_1: {ctor: '[]'}
-						}
-					}
-				}),
-			_1: {ctor: '[]'}
-		}
-	});
 var _lucamug$elm_style_elements_examples$Main$update = F2(
 	function (msg, model) {
 		var _p0 = msg;
 		var _p1 = _p0._0;
 		switch (_p1) {
-			case 'example1':
-				return _lucamug$elm_style_elements_examples$Main$example1;
+			case 'exampleRow':
+				return _lucamug$elm_style_elements_examples$Main$exampleRow;
 			case 'exampleBorders':
 				return _lucamug$elm_style_elements_examples$Main$exampleBorders;
 			case 'exampleBackgrounds':
@@ -25021,7 +24879,7 @@ var _lucamug$elm_style_elements_examples$Main$menu = A3(
 				_mdgriffith$style_elements$Element_Attributes$px(180)),
 			_1: {
 				ctor: '::',
-				_0: _mdgriffith$style_elements$Element_Attributes$spacing(20),
+				_0: _mdgriffith$style_elements$Element_Attributes$spacing(4),
 				_1: {
 					ctor: '::',
 					_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
@@ -25032,109 +24890,88 @@ var _lucamug$elm_style_elements_examples$Main$menu = A3(
 	},
 	{
 		ctor: '::',
-		_0: A2(
-			_mdgriffith$style_elements$Element$link,
-			'#',
-			A3(
+		_0: A3(
+			_mdgriffith$style_elements$Element$el,
+			_lucamug$elm_style_elements_examples$Main$Clickable,
+			{
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Element_Events$onClick(
+					_lucamug$elm_style_elements_examples$Main$Select('welcome')),
+				_1: {ctor: '[]'}
+			},
+			_mdgriffith$style_elements$Element$text('🏠')),
+		_1: {
+			ctor: '::',
+			_0: A3(
 				_mdgriffith$style_elements$Element$el,
-				_lucamug$elm_style_elements_examples$Main$None,
+				_lucamug$elm_style_elements_examples$Main$Clickable,
 				{
 					ctor: '::',
 					_0: _mdgriffith$style_elements$Element_Events$onClick(
-						_lucamug$elm_style_elements_examples$Main$Select('welcome')),
+						_lucamug$elm_style_elements_examples$Main$Select('exampleRow')),
 					_1: {ctor: '[]'}
 				},
-				_mdgriffith$style_elements$Element$text('🏠'))),
-		_1: {
-			ctor: '::',
-			_0: A2(
-				_mdgriffith$style_elements$Element$link,
-				'#',
-				A3(
+				_mdgriffith$style_elements$Element$text('Row')),
+			_1: {
+				ctor: '::',
+				_0: A3(
 					_mdgriffith$style_elements$Element$el,
-					_lucamug$elm_style_elements_examples$Main$None,
+					_lucamug$elm_style_elements_examples$Main$Clickable,
 					{
 						ctor: '::',
 						_0: _mdgriffith$style_elements$Element_Events$onClick(
-							_lucamug$elm_style_elements_examples$Main$Select('example1')),
+							_lucamug$elm_style_elements_examples$Main$Select('exampleBorders')),
 						_1: {ctor: '[]'}
 					},
-					_mdgriffith$style_elements$Element$text('Row'))),
-			_1: {
-				ctor: '::',
-				_0: A2(
-					_mdgriffith$style_elements$Element$link,
-					'#',
-					A3(
+					_mdgriffith$style_elements$Element$text('Borders')),
+				_1: {
+					ctor: '::',
+					_0: A3(
 						_mdgriffith$style_elements$Element$el,
-						_lucamug$elm_style_elements_examples$Main$None,
+						_lucamug$elm_style_elements_examples$Main$Clickable,
 						{
 							ctor: '::',
 							_0: _mdgriffith$style_elements$Element_Events$onClick(
-								_lucamug$elm_style_elements_examples$Main$Select('exampleBorders')),
+								_lucamug$elm_style_elements_examples$Main$Select('exampleBackgrounds')),
 							_1: {ctor: '[]'}
 						},
-						_mdgriffith$style_elements$Element$text('Borders'))),
-				_1: {
-					ctor: '::',
-					_0: A2(
-						_mdgriffith$style_elements$Element$link,
-						'#',
-						A3(
+						_mdgriffith$style_elements$Element$text('Backgrounds')),
+					_1: {
+						ctor: '::',
+						_0: A3(
 							_mdgriffith$style_elements$Element$el,
-							_lucamug$elm_style_elements_examples$Main$None,
+							_lucamug$elm_style_elements_examples$Main$Clickable,
 							{
 								ctor: '::',
 								_0: _mdgriffith$style_elements$Element_Events$onClick(
-									_lucamug$elm_style_elements_examples$Main$Select('exampleBackgrounds')),
+									_lucamug$elm_style_elements_examples$Main$Select('exampleShadows')),
 								_1: {ctor: '[]'}
 							},
-							_mdgriffith$style_elements$Element$text('Backgrounds'))),
-					_1: {
-						ctor: '::',
-						_0: A2(
-							_mdgriffith$style_elements$Element$link,
-							'#',
-							A3(
+							_mdgriffith$style_elements$Element$text('Shadows')),
+						_1: {
+							ctor: '::',
+							_0: A3(
 								_mdgriffith$style_elements$Element$el,
-								_lucamug$elm_style_elements_examples$Main$None,
+								_lucamug$elm_style_elements_examples$Main$Clickable,
 								{
 									ctor: '::',
 									_0: _mdgriffith$style_elements$Element_Events$onClick(
-										_lucamug$elm_style_elements_examples$Main$Select('exampleShadows')),
+										_lucamug$elm_style_elements_examples$Main$Select('exampleGrid')),
 									_1: {ctor: '[]'}
 								},
-								_mdgriffith$style_elements$Element$text('Shadows'))),
-						_1: {
-							ctor: '::',
-							_0: A2(
-								_mdgriffith$style_elements$Element$link,
-								'#',
-								A3(
+								_mdgriffith$style_elements$Element$text('Grid')),
+							_1: {
+								ctor: '::',
+								_0: A3(
 									_mdgriffith$style_elements$Element$el,
-									_lucamug$elm_style_elements_examples$Main$None,
+									_lucamug$elm_style_elements_examples$Main$Clickable,
 									{
 										ctor: '::',
 										_0: _mdgriffith$style_elements$Element_Events$onClick(
-											_lucamug$elm_style_elements_examples$Main$Select('exampleGrid')),
+											_lucamug$elm_style_elements_examples$Main$Select('exampleChat')),
 										_1: {ctor: '[]'}
 									},
-									_mdgriffith$style_elements$Element$text('Grid'))),
-							_1: {
-								ctor: '::',
-								_0: A2(
-									_mdgriffith$style_elements$Element$link,
-									'#',
-									A3(
-										_mdgriffith$style_elements$Element$el,
-										_lucamug$elm_style_elements_examples$Main$None,
-										{
-											ctor: '::',
-											_0: _mdgriffith$style_elements$Element_Events$onClick(
-												_lucamug$elm_style_elements_examples$Main$Select('exampleChat')),
-											_1: {ctor: '[]'}
-										},
-										_mdgriffith$style_elements$Element$text('Chat'))),
+									_mdgriffith$style_elements$Element$text('Chat')),
 								_1: {ctor: '[]'}
 							}
 						}
@@ -25185,7 +25022,44 @@ var _lucamug$elm_style_elements_examples$Main$view = function (model) {
 							_0: _lucamug$elm_style_elements_examples$Main$menu,
 							_1: {
 								ctor: '::',
-								_0: model,
+								_0: A3(
+									_mdgriffith$style_elements$Element$column,
+									_lucamug$elm_style_elements_examples$Main$None,
+									{
+										ctor: '::',
+										_0: _mdgriffith$style_elements$Element_Attributes$height(_mdgriffith$style_elements$Element_Attributes$fill),
+										_1: {
+											ctor: '::',
+											_0: _mdgriffith$style_elements$Element_Attributes$width(_mdgriffith$style_elements$Element_Attributes$fill),
+											_1: {
+												ctor: '::',
+												_0: _mdgriffith$style_elements$Element_Attributes$scrollbars,
+												_1: {ctor: '[]'}
+											}
+										}
+									},
+									{
+										ctor: '::',
+										_0: A3(
+											_mdgriffith$style_elements$Element$el,
+											_lucamug$elm_style_elements_examples$Main$Code,
+											{
+												ctor: '::',
+												_0: _mdgriffith$style_elements$Element_Attributes$height(
+													_mdgriffith$style_elements$Element_Attributes$px(150)),
+												_1: {
+													ctor: '::',
+													_0: _mdgriffith$style_elements$Element_Attributes$scrollbars,
+													_1: {ctor: '[]'}
+												}
+											},
+											_mdgriffith$style_elements$Element$text(model.text)),
+										_1: {
+											ctor: '::',
+											_0: model.source,
+											_1: {ctor: '[]'}
+										}
+									}),
 								_1: {ctor: '[]'}
 							}
 						}),
