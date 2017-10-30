@@ -13294,6 +13294,121 @@ var _elm_lang$html$Html_Attributes$classList = function (list) {
 };
 var _elm_lang$html$Html_Attributes$style = _elm_lang$virtual_dom$VirtualDom$style;
 
+var _elm_lang$html$Html_Events$keyCode = A2(_elm_lang$core$Json_Decode$field, 'keyCode', _elm_lang$core$Json_Decode$int);
+var _elm_lang$html$Html_Events$targetChecked = A2(
+	_elm_lang$core$Json_Decode$at,
+	{
+		ctor: '::',
+		_0: 'target',
+		_1: {
+			ctor: '::',
+			_0: 'checked',
+			_1: {ctor: '[]'}
+		}
+	},
+	_elm_lang$core$Json_Decode$bool);
+var _elm_lang$html$Html_Events$targetValue = A2(
+	_elm_lang$core$Json_Decode$at,
+	{
+		ctor: '::',
+		_0: 'target',
+		_1: {
+			ctor: '::',
+			_0: 'value',
+			_1: {ctor: '[]'}
+		}
+	},
+	_elm_lang$core$Json_Decode$string);
+var _elm_lang$html$Html_Events$defaultOptions = _elm_lang$virtual_dom$VirtualDom$defaultOptions;
+var _elm_lang$html$Html_Events$onWithOptions = _elm_lang$virtual_dom$VirtualDom$onWithOptions;
+var _elm_lang$html$Html_Events$on = _elm_lang$virtual_dom$VirtualDom$on;
+var _elm_lang$html$Html_Events$onFocus = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'focus',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onBlur = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'blur',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onSubmitOptions = _elm_lang$core$Native_Utils.update(
+	_elm_lang$html$Html_Events$defaultOptions,
+	{preventDefault: true});
+var _elm_lang$html$Html_Events$onSubmit = function (msg) {
+	return A3(
+		_elm_lang$html$Html_Events$onWithOptions,
+		'submit',
+		_elm_lang$html$Html_Events$onSubmitOptions,
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onCheck = function (tagger) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'change',
+		A2(_elm_lang$core$Json_Decode$map, tagger, _elm_lang$html$Html_Events$targetChecked));
+};
+var _elm_lang$html$Html_Events$onInput = function (tagger) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'input',
+		A2(_elm_lang$core$Json_Decode$map, tagger, _elm_lang$html$Html_Events$targetValue));
+};
+var _elm_lang$html$Html_Events$onMouseOut = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mouseout',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onMouseOver = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mouseover',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onMouseLeave = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mouseleave',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onMouseEnter = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mouseenter',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onMouseUp = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mouseup',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onMouseDown = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mousedown',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onDoubleClick = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'dblclick',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onClick = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'click',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$Options = F2(
+	function (a, b) {
+		return {stopPropagation: a, preventDefault: b};
+	});
+
 var _elm_lang$html$Html_Keyed$node = _elm_lang$virtual_dom$VirtualDom$keyedNode;
 var _elm_lang$html$Html_Keyed$ol = _elm_lang$html$Html_Keyed$node('ol');
 var _elm_lang$html$Html_Keyed$ul = _elm_lang$html$Html_Keyed$node('ul');
@@ -23371,6 +23486,100 @@ var _mdgriffith$style_elements$Element$Device = F7(
 		return {width: a, height: b, phone: c, tablet: d, desktop: e, bigDesktop: f, portrait: g};
 	});
 
+var _mdgriffith$style_elements$Element_Events$keyCode = A2(_elm_lang$core$Json_Decode$field, 'keyCode', _elm_lang$core$Json_Decode$int);
+var _mdgriffith$style_elements$Element_Events$targetChecked = A2(
+	_elm_lang$core$Json_Decode$at,
+	{
+		ctor: '::',
+		_0: 'target',
+		_1: {
+			ctor: '::',
+			_0: 'checked',
+			_1: {ctor: '[]'}
+		}
+	},
+	_elm_lang$core$Json_Decode$bool);
+var _mdgriffith$style_elements$Element_Events$targetValue = A2(
+	_elm_lang$core$Json_Decode$at,
+	{
+		ctor: '::',
+		_0: 'target',
+		_1: {
+			ctor: '::',
+			_0: 'value',
+			_1: {ctor: '[]'}
+		}
+	},
+	_elm_lang$core$Json_Decode$string);
+var _mdgriffith$style_elements$Element_Events$defaultOptions = _elm_lang$virtual_dom$VirtualDom$defaultOptions;
+var _mdgriffith$style_elements$Element_Events$onWithOptions = F3(
+	function (event, options, decode) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Event(
+			A3(_elm_lang$html$Html_Events$onWithOptions, event, options, decode));
+	});
+var _mdgriffith$style_elements$Element_Events$on = F2(
+	function (event, decode) {
+		return _mdgriffith$style_elements$Element_Internal_Model$Event(
+			A2(_elm_lang$html$Html_Events$on, event, decode));
+	});
+var _mdgriffith$style_elements$Element_Events$onFocus = function (_p0) {
+	return _mdgriffith$style_elements$Element_Internal_Model$Event(
+		_elm_lang$html$Html_Events$onFocus(_p0));
+};
+var _mdgriffith$style_elements$Element_Events$onBlur = function (_p1) {
+	return _mdgriffith$style_elements$Element_Internal_Model$Event(
+		_elm_lang$html$Html_Events$onBlur(_p1));
+};
+var _mdgriffith$style_elements$Element_Events$onSubmit = function (_p2) {
+	return _mdgriffith$style_elements$Element_Internal_Model$Event(
+		_elm_lang$html$Html_Events$onSubmit(_p2));
+};
+var _mdgriffith$style_elements$Element_Events$onCheck = function (_p3) {
+	return _mdgriffith$style_elements$Element_Internal_Model$InputEvent(
+		_elm_lang$html$Html_Events$onCheck(_p3));
+};
+var _mdgriffith$style_elements$Element_Events$onInput = function (_p4) {
+	return _mdgriffith$style_elements$Element_Internal_Model$InputEvent(
+		_elm_lang$html$Html_Events$onInput(_p4));
+};
+var _mdgriffith$style_elements$Element_Events$onMouseOut = function (_p5) {
+	return _mdgriffith$style_elements$Element_Internal_Model$Event(
+		_elm_lang$html$Html_Events$onMouseOut(_p5));
+};
+var _mdgriffith$style_elements$Element_Events$onMouseOver = function (_p6) {
+	return _mdgriffith$style_elements$Element_Internal_Model$Event(
+		_elm_lang$html$Html_Events$onMouseOver(_p6));
+};
+var _mdgriffith$style_elements$Element_Events$onMouseLeave = function (_p7) {
+	return _mdgriffith$style_elements$Element_Internal_Model$Event(
+		_elm_lang$html$Html_Events$onMouseLeave(_p7));
+};
+var _mdgriffith$style_elements$Element_Events$onMouseEnter = function (_p8) {
+	return _mdgriffith$style_elements$Element_Internal_Model$Event(
+		_elm_lang$html$Html_Events$onMouseEnter(_p8));
+};
+var _mdgriffith$style_elements$Element_Events$onMouseUp = function (_p9) {
+	return _mdgriffith$style_elements$Element_Internal_Model$Event(
+		_elm_lang$html$Html_Events$onMouseUp(_p9));
+};
+var _mdgriffith$style_elements$Element_Events$onMouseDown = function (_p10) {
+	return _mdgriffith$style_elements$Element_Internal_Model$Event(
+		_elm_lang$html$Html_Events$onMouseDown(_p10));
+};
+var _mdgriffith$style_elements$Element_Events$onDoubleClick = function (_p11) {
+	return _mdgriffith$style_elements$Element_Internal_Model$Event(
+		_elm_lang$html$Html_Events$onDoubleClick(_p11));
+};
+var _mdgriffith$style_elements$Element_Events$onClick = function (_p12) {
+	return _mdgriffith$style_elements$Element_Internal_Model$Event(
+		_elm_lang$html$Html_Events$onClick(_p12));
+};
+var _mdgriffith$style_elements$Element_Events$event = _mdgriffith$style_elements$Element_Internal_Model$Event;
+var _mdgriffith$style_elements$Element_Events$Options = F2(
+	function (a, b) {
+		return {stopPropagation: a, preventDefault: b};
+	});
+
 var _mdgriffith$style_elements$Style_Border$roundBottomLeft = function (x) {
 	return A2(
 		_mdgriffith$style_elements$Style_Internal_Model$Exact,
@@ -23812,6 +24021,105 @@ var _lucamug$elm_style_elements_examples$Main$sansSerif = {
 		}
 	}
 };
+var _lucamug$elm_style_elements_examples$Main$Box = {ctor: 'Box'};
+var _lucamug$elm_style_elements_examples$Main$MyGridStyle = {ctor: 'MyGridStyle'};
+var _lucamug$elm_style_elements_examples$Main$exampleGrid = A3(
+	_mdgriffith$style_elements$Element$grid,
+	_lucamug$elm_style_elements_examples$Main$MyGridStyle,
+	{ctor: '[]'},
+	{
+		columns: {
+			ctor: '::',
+			_0: _mdgriffith$style_elements$Element_Attributes$px(100),
+			_1: {
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Element_Attributes$px(100),
+				_1: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Attributes$px(100),
+					_1: {
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Element_Attributes$px(100),
+						_1: {ctor: '[]'}
+					}
+				}
+			}
+		},
+		rows: {
+			ctor: '::',
+			_0: _mdgriffith$style_elements$Element_Attributes$px(100),
+			_1: {
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Element_Attributes$px(100),
+				_1: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Attributes$px(100),
+					_1: {
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Element_Attributes$px(100),
+						_1: {ctor: '[]'}
+					}
+				}
+			}
+		},
+		cells: {
+			ctor: '::',
+			_0: _mdgriffith$style_elements$Element$cell(
+				{
+					start: {ctor: '_Tuple2', _0: 0, _1: 0},
+					width: 4,
+					height: 1,
+					content: A3(
+						_mdgriffith$style_elements$Element$el,
+						_lucamug$elm_style_elements_examples$Main$Box,
+						{ctor: '[]'},
+						_mdgriffith$style_elements$Element$text('box1'))
+				}),
+			_1: {
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Element$cell(
+					{
+						start: {ctor: '_Tuple2', _0: 0, _1: 1},
+						width: 1,
+						height: 2,
+						content: A3(
+							_mdgriffith$style_elements$Element$el,
+							_lucamug$elm_style_elements_examples$Main$Box,
+							{ctor: '[]'},
+							_mdgriffith$style_elements$Element$text('box2'))
+					}),
+				_1: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element$cell(
+						{
+							start: {ctor: '_Tuple2', _0: 0, _1: 3},
+							width: 1,
+							height: 1,
+							content: A3(
+								_mdgriffith$style_elements$Element$el,
+								_lucamug$elm_style_elements_examples$Main$Box,
+								{ctor: '[]'},
+								_mdgriffith$style_elements$Element$text('box3'))
+						}),
+					_1: {
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Element$cell(
+							{
+								start: {ctor: '_Tuple2', _0: 1, _1: 1},
+								width: 3,
+								height: 3,
+								content: A3(
+									_mdgriffith$style_elements$Element$el,
+									_lucamug$elm_style_elements_examples$Main$Box,
+									{ctor: '[]'},
+									_mdgriffith$style_elements$Element$text('box4'))
+							}),
+						_1: {ctor: '[]'}
+					}
+				}
+			}
+		}
+	});
 var _lucamug$elm_style_elements_examples$Main$ChatH3 = {ctor: 'ChatH3'};
 var _lucamug$elm_style_elements_examples$Main$ChatMain = {ctor: 'ChatMain'};
 var _lucamug$elm_style_elements_examples$Main$ChatChat = {ctor: 'ChatChat'};
@@ -23900,7 +24208,7 @@ var _lucamug$elm_style_elements_examples$Main$Example1 = {ctor: 'Example1'};
 var _lucamug$elm_style_elements_examples$Main$Menu = {ctor: 'Menu'};
 var _lucamug$elm_style_elements_examples$Main$Title = {ctor: 'Title'};
 var _lucamug$elm_style_elements_examples$Main$Main = {ctor: 'Main'};
-var _lucamug$elm_style_elements_examples$Main$example2 = A3(
+var _lucamug$elm_style_elements_examples$Main$exampleBorders = A3(
 	_mdgriffith$style_elements$Element$column,
 	_lucamug$elm_style_elements_examples$Main$Main,
 	{
@@ -24000,6 +24308,64 @@ var _lucamug$elm_style_elements_examples$Main$example2 = A3(
 				}
 			}
 		}
+	});
+var _lucamug$elm_style_elements_examples$Main$exampleBackgrounds = A3(
+	_mdgriffith$style_elements$Element$column,
+	_lucamug$elm_style_elements_examples$Main$Main,
+	{
+		ctor: '::',
+		_0: _mdgriffith$style_elements$Element_Attributes$scrollbars,
+		_1: {
+			ctor: '::',
+			_0: _mdgriffith$style_elements$Element_Attributes$spacing(20),
+			_1: {
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
+				_1: {ctor: '[]'}
+			}
+		}
+	},
+	{
+		ctor: '::',
+		_0: A3(
+			_mdgriffith$style_elements$Element$el,
+			_lucamug$elm_style_elements_examples$Main$Example4,
+			{
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
+				_1: {ctor: '[]'}
+			},
+			_mdgriffith$style_elements$Element$text('[ Background.gradient 0 [ Background.step Color.blue, Background.step Color.green ]\n]')),
+		_1: {ctor: '[]'}
+	});
+var _lucamug$elm_style_elements_examples$Main$exampleShadows = A3(
+	_mdgriffith$style_elements$Element$column,
+	_lucamug$elm_style_elements_examples$Main$Main,
+	{
+		ctor: '::',
+		_0: _mdgriffith$style_elements$Element_Attributes$scrollbars,
+		_1: {
+			ctor: '::',
+			_0: _mdgriffith$style_elements$Element_Attributes$spacing(20),
+			_1: {
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
+				_1: {ctor: '[]'}
+			}
+		}
+	},
+	{
+		ctor: '::',
+		_0: A3(
+			_mdgriffith$style_elements$Element$el,
+			_lucamug$elm_style_elements_examples$Main$Example5,
+			{
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
+				_1: {ctor: '[]'}
+			},
+			_mdgriffith$style_elements$Element$text('[ Shadow.glow Color.red 5\n]')),
+		_1: {ctor: '[]'}
 	});
 var _lucamug$elm_style_elements_examples$Main$None = {ctor: 'None'};
 var _lucamug$elm_style_elements_examples$Main$stylesheet = _mdgriffith$style_elements$Style$styleSheet(
@@ -24247,195 +24613,35 @@ var _lucamug$elm_style_elements_examples$Main$stylesheet = _mdgriffith$style_ele
 																						_1: {ctor: '[]'}
 																					}
 																				}),
-																			_1: {ctor: '[]'}
-																		}
-																	}
-																}
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	});
-var _lucamug$elm_style_elements_examples$Main$menu = A3(
-	_mdgriffith$style_elements$Element$column,
-	_lucamug$elm_style_elements_examples$Main$Menu,
-	{
-		ctor: '::',
-		_0: _mdgriffith$style_elements$Element_Attributes$scrollbars,
-		_1: {
-			ctor: '::',
-			_0: _mdgriffith$style_elements$Element_Attributes$minWidth(
-				_mdgriffith$style_elements$Element_Attributes$px(180)),
-			_1: {
-				ctor: '::',
-				_0: _mdgriffith$style_elements$Element_Attributes$spacing(20),
-				_1: {
-					ctor: '::',
-					_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
-					_1: {ctor: '[]'}
-				}
-			}
-		}
-	},
-	{
-		ctor: '::',
-		_0: A3(
-			_mdgriffith$style_elements$Element$el,
-			_lucamug$elm_style_elements_examples$Main$None,
-			_lucamug$elm_style_elements_examples$Main$attributesMenuList,
-			_mdgriffith$style_elements$Element$text('Example 1')),
-		_1: {
-			ctor: '::',
-			_0: A3(
-				_mdgriffith$style_elements$Element$el,
-				_lucamug$elm_style_elements_examples$Main$None,
-				_lucamug$elm_style_elements_examples$Main$attributesMenuList,
-				_mdgriffith$style_elements$Element$text('Example 2')),
-			_1: {
-				ctor: '::',
-				_0: A3(
-					_mdgriffith$style_elements$Element$el,
-					_lucamug$elm_style_elements_examples$Main$None,
-					_lucamug$elm_style_elements_examples$Main$attributesMenuList,
-					_mdgriffith$style_elements$Element$text('Example 3')),
-				_1: {
-					ctor: '::',
-					_0: A3(
-						_mdgriffith$style_elements$Element$el,
-						_lucamug$elm_style_elements_examples$Main$None,
-						_lucamug$elm_style_elements_examples$Main$attributesMenuList,
-						_mdgriffith$style_elements$Element$text('Example 4')),
-					_1: {
-						ctor: '::',
-						_0: A3(
-							_mdgriffith$style_elements$Element$el,
-							_lucamug$elm_style_elements_examples$Main$None,
-							_lucamug$elm_style_elements_examples$Main$attributesMenuList,
-							_mdgriffith$style_elements$Element$text('Example 5')),
-						_1: {
-							ctor: '::',
-							_0: A3(
-								_mdgriffith$style_elements$Element$el,
-								_lucamug$elm_style_elements_examples$Main$None,
-								_lucamug$elm_style_elements_examples$Main$attributesMenuList,
-								_mdgriffith$style_elements$Element$text('Example 6')),
-							_1: {
-								ctor: '::',
-								_0: A3(
-									_mdgriffith$style_elements$Element$el,
-									_lucamug$elm_style_elements_examples$Main$None,
-									_lucamug$elm_style_elements_examples$Main$attributesMenuList,
-									_mdgriffith$style_elements$Element$text('Example 6')),
-								_1: {
-									ctor: '::',
-									_0: A3(
-										_mdgriffith$style_elements$Element$el,
-										_lucamug$elm_style_elements_examples$Main$None,
-										_lucamug$elm_style_elements_examples$Main$attributesMenuList,
-										_mdgriffith$style_elements$Element$text('Example 6')),
-									_1: {
-										ctor: '::',
-										_0: A3(
-											_mdgriffith$style_elements$Element$el,
-											_lucamug$elm_style_elements_examples$Main$None,
-											_lucamug$elm_style_elements_examples$Main$attributesMenuList,
-											_mdgriffith$style_elements$Element$text('Example 6')),
-										_1: {
-											ctor: '::',
-											_0: A3(
-												_mdgriffith$style_elements$Element$el,
-												_lucamug$elm_style_elements_examples$Main$None,
-												_lucamug$elm_style_elements_examples$Main$attributesMenuList,
-												_mdgriffith$style_elements$Element$text('Example 6')),
-											_1: {
-												ctor: '::',
-												_0: A3(
-													_mdgriffith$style_elements$Element$el,
-													_lucamug$elm_style_elements_examples$Main$None,
-													_lucamug$elm_style_elements_examples$Main$attributesMenuList,
-													_mdgriffith$style_elements$Element$text('Example 6')),
-												_1: {
-													ctor: '::',
-													_0: A3(
-														_mdgriffith$style_elements$Element$el,
-														_lucamug$elm_style_elements_examples$Main$None,
-														_lucamug$elm_style_elements_examples$Main$attributesMenuList,
-														_mdgriffith$style_elements$Element$text('Example 6')),
-													_1: {
-														ctor: '::',
-														_0: A3(
-															_mdgriffith$style_elements$Element$el,
-															_lucamug$elm_style_elements_examples$Main$None,
-															_lucamug$elm_style_elements_examples$Main$attributesMenuList,
-															_mdgriffith$style_elements$Element$text('Example 6')),
-														_1: {
-															ctor: '::',
-															_0: A3(
-																_mdgriffith$style_elements$Element$el,
-																_lucamug$elm_style_elements_examples$Main$None,
-																_lucamug$elm_style_elements_examples$Main$attributesMenuList,
-																_mdgriffith$style_elements$Element$text('Example 6')),
-															_1: {
-																ctor: '::',
-																_0: A3(
-																	_mdgriffith$style_elements$Element$el,
-																	_lucamug$elm_style_elements_examples$Main$None,
-																	_lucamug$elm_style_elements_examples$Main$attributesMenuList,
-																	_mdgriffith$style_elements$Element$text('Example 6')),
-																_1: {
-																	ctor: '::',
-																	_0: A3(
-																		_mdgriffith$style_elements$Element$el,
-																		_lucamug$elm_style_elements_examples$Main$None,
-																		_lucamug$elm_style_elements_examples$Main$attributesMenuList,
-																		_mdgriffith$style_elements$Element$text('Example 6')),
-																	_1: {
-																		ctor: '::',
-																		_0: A3(
-																			_mdgriffith$style_elements$Element$el,
-																			_lucamug$elm_style_elements_examples$Main$None,
-																			_lucamug$elm_style_elements_examples$Main$attributesMenuList,
-																			_mdgriffith$style_elements$Element$text('Example 6')),
-																		_1: {
-																			ctor: '::',
-																			_0: A3(
-																				_mdgriffith$style_elements$Element$el,
-																				_lucamug$elm_style_elements_examples$Main$None,
-																				_lucamug$elm_style_elements_examples$Main$attributesMenuList,
-																				_mdgriffith$style_elements$Element$text('Example 6')),
 																			_1: {
 																				ctor: '::',
-																				_0: A3(
-																					_mdgriffith$style_elements$Element$el,
-																					_lucamug$elm_style_elements_examples$Main$None,
-																					_lucamug$elm_style_elements_examples$Main$attributesMenuList,
-																					_mdgriffith$style_elements$Element$text('Example 6')),
+																				_0: A2(
+																					_mdgriffith$style_elements$Style$style,
+																					_lucamug$elm_style_elements_examples$Main$MyGridStyle,
+																					{
+																						ctor: '::',
+																						_0: _mdgriffith$style_elements$Style_Color$border(_elm_lang$core$Color$green),
+																						_1: {
+																							ctor: '::',
+																							_0: _mdgriffith$style_elements$Style_Border$all(3),
+																							_1: {ctor: '[]'}
+																						}
+																					}),
 																				_1: {
 																					ctor: '::',
-																					_0: A3(
-																						_mdgriffith$style_elements$Element$el,
-																						_lucamug$elm_style_elements_examples$Main$None,
-																						_lucamug$elm_style_elements_examples$Main$attributesMenuList,
-																						_mdgriffith$style_elements$Element$text('Example 6')),
-																					_1: {
-																						ctor: '::',
-																						_0: A3(
-																							_mdgriffith$style_elements$Element$el,
-																							_lucamug$elm_style_elements_examples$Main$None,
-																							_lucamug$elm_style_elements_examples$Main$attributesMenuList,
-																							_mdgriffith$style_elements$Element$text('Example 6')),
-																						_1: {ctor: '[]'}
-																					}
+																					_0: A2(
+																						_mdgriffith$style_elements$Style$style,
+																						_lucamug$elm_style_elements_examples$Main$Box,
+																						{
+																							ctor: '::',
+																							_0: _mdgriffith$style_elements$Style_Color$border(_elm_lang$core$Color$red),
+																							_1: {
+																								ctor: '::',
+																								_0: _mdgriffith$style_elements$Style_Border$all(3),
+																								_1: {ctor: '[]'}
+																							}
+																						}),
+																					_1: {ctor: '[]'}
 																				}
 																			}
 																		}
@@ -24456,6 +24662,15 @@ var _lucamug$elm_style_elements_examples$Main$menu = A3(
 			}
 		}
 	});
+var _lucamug$elm_style_elements_examples$Main$welcome = A3(
+	_mdgriffith$style_elements$Element$el,
+	_lucamug$elm_style_elements_examples$Main$None,
+	{
+		ctor: '::',
+		_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
+		_1: {ctor: '[]'}
+	},
+	_mdgriffith$style_elements$Element$text('Welcome'));
 var _lucamug$elm_style_elements_examples$Main$example1 = A3(
 	_mdgriffith$style_elements$Element$row,
 	_lucamug$elm_style_elements_examples$Main$None,
@@ -24721,7 +24936,7 @@ var _lucamug$elm_style_elements_examples$Main$chatBody = A3(
 			_1: {ctor: '[]'}
 		}
 	});
-var _lucamug$elm_style_elements_examples$Main$chatMain = A3(
+var _lucamug$elm_style_elements_examples$Main$exampleChat = A3(
 	_mdgriffith$style_elements$Element$column,
 	_lucamug$elm_style_elements_examples$Main$Main,
 	{
@@ -24770,6 +24985,164 @@ var _lucamug$elm_style_elements_examples$Main$chatMain = A3(
 			_1: {ctor: '[]'}
 		}
 	});
+var _lucamug$elm_style_elements_examples$Main$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		var _p1 = _p0._0;
+		switch (_p1) {
+			case 'example1':
+				return _lucamug$elm_style_elements_examples$Main$example1;
+			case 'exampleBorders':
+				return _lucamug$elm_style_elements_examples$Main$exampleBorders;
+			case 'exampleBackgrounds':
+				return _lucamug$elm_style_elements_examples$Main$exampleBackgrounds;
+			case 'exampleShadows':
+				return _lucamug$elm_style_elements_examples$Main$exampleShadows;
+			case 'exampleGrid':
+				return _lucamug$elm_style_elements_examples$Main$exampleGrid;
+			case 'exampleChat':
+				return _lucamug$elm_style_elements_examples$Main$exampleChat;
+			default:
+				return _lucamug$elm_style_elements_examples$Main$welcome;
+		}
+	});
+var _lucamug$elm_style_elements_examples$Main$Select = function (a) {
+	return {ctor: 'Select', _0: a};
+};
+var _lucamug$elm_style_elements_examples$Main$menu = A3(
+	_mdgriffith$style_elements$Element$column,
+	_lucamug$elm_style_elements_examples$Main$Menu,
+	{
+		ctor: '::',
+		_0: _mdgriffith$style_elements$Element_Attributes$scrollbars,
+		_1: {
+			ctor: '::',
+			_0: _mdgriffith$style_elements$Element_Attributes$minWidth(
+				_mdgriffith$style_elements$Element_Attributes$px(180)),
+			_1: {
+				ctor: '::',
+				_0: _mdgriffith$style_elements$Element_Attributes$spacing(20),
+				_1: {
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Attributes$padding(20),
+					_1: {ctor: '[]'}
+				}
+			}
+		}
+	},
+	{
+		ctor: '::',
+		_0: A2(
+			_mdgriffith$style_elements$Element$link,
+			'#',
+			A3(
+				_mdgriffith$style_elements$Element$el,
+				_lucamug$elm_style_elements_examples$Main$None,
+				{
+					ctor: '::',
+					_0: _mdgriffith$style_elements$Element_Events$onClick(
+						_lucamug$elm_style_elements_examples$Main$Select('welcome')),
+					_1: {ctor: '[]'}
+				},
+				_mdgriffith$style_elements$Element$text('🏠'))),
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_mdgriffith$style_elements$Element$link,
+				'#',
+				A3(
+					_mdgriffith$style_elements$Element$el,
+					_lucamug$elm_style_elements_examples$Main$None,
+					{
+						ctor: '::',
+						_0: _mdgriffith$style_elements$Element_Events$onClick(
+							_lucamug$elm_style_elements_examples$Main$Select('example1')),
+						_1: {ctor: '[]'}
+					},
+					_mdgriffith$style_elements$Element$text('Row'))),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_mdgriffith$style_elements$Element$link,
+					'#',
+					A3(
+						_mdgriffith$style_elements$Element$el,
+						_lucamug$elm_style_elements_examples$Main$None,
+						{
+							ctor: '::',
+							_0: _mdgriffith$style_elements$Element_Events$onClick(
+								_lucamug$elm_style_elements_examples$Main$Select('exampleBorders')),
+							_1: {ctor: '[]'}
+						},
+						_mdgriffith$style_elements$Element$text('Borders'))),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_mdgriffith$style_elements$Element$link,
+						'#',
+						A3(
+							_mdgriffith$style_elements$Element$el,
+							_lucamug$elm_style_elements_examples$Main$None,
+							{
+								ctor: '::',
+								_0: _mdgriffith$style_elements$Element_Events$onClick(
+									_lucamug$elm_style_elements_examples$Main$Select('exampleBackgrounds')),
+								_1: {ctor: '[]'}
+							},
+							_mdgriffith$style_elements$Element$text('Backgrounds'))),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_mdgriffith$style_elements$Element$link,
+							'#',
+							A3(
+								_mdgriffith$style_elements$Element$el,
+								_lucamug$elm_style_elements_examples$Main$None,
+								{
+									ctor: '::',
+									_0: _mdgriffith$style_elements$Element_Events$onClick(
+										_lucamug$elm_style_elements_examples$Main$Select('exampleShadows')),
+									_1: {ctor: '[]'}
+								},
+								_mdgriffith$style_elements$Element$text('Shadows'))),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_mdgriffith$style_elements$Element$link,
+								'#',
+								A3(
+									_mdgriffith$style_elements$Element$el,
+									_lucamug$elm_style_elements_examples$Main$None,
+									{
+										ctor: '::',
+										_0: _mdgriffith$style_elements$Element_Events$onClick(
+											_lucamug$elm_style_elements_examples$Main$Select('exampleGrid')),
+										_1: {ctor: '[]'}
+									},
+									_mdgriffith$style_elements$Element$text('Grid'))),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_mdgriffith$style_elements$Element$link,
+									'#',
+									A3(
+										_mdgriffith$style_elements$Element$el,
+										_lucamug$elm_style_elements_examples$Main$None,
+										{
+											ctor: '::',
+											_0: _mdgriffith$style_elements$Element_Events$onClick(
+												_lucamug$elm_style_elements_examples$Main$Select('exampleChat')),
+											_1: {ctor: '[]'}
+										},
+										_mdgriffith$style_elements$Element$text('Chat'))),
+								_1: {ctor: '[]'}
+							}
+						}
+					}
+				}
+			}
+		}
+	});
 var _lucamug$elm_style_elements_examples$Main$view = function (model) {
 	return A2(
 		_mdgriffith$style_elements$Element$viewport,
@@ -24812,7 +25185,7 @@ var _lucamug$elm_style_elements_examples$Main$view = function (model) {
 							_0: _lucamug$elm_style_elements_examples$Main$menu,
 							_1: {
 								ctor: '::',
-								_0: _lucamug$elm_style_elements_examples$Main$chatMain,
+								_0: model,
 								_1: {ctor: '[]'}
 							}
 						}),
@@ -24821,18 +25194,12 @@ var _lucamug$elm_style_elements_examples$Main$view = function (model) {
 			}));
 };
 var _lucamug$elm_style_elements_examples$Main$main = _elm_lang$html$Html$beginnerProgram(
-	{
-		model: 0,
-		update: function (x) {
-			return x;
-		},
-		view: _lucamug$elm_style_elements_examples$Main$view
-	})();
+	{model: _lucamug$elm_style_elements_examples$Main$welcome, view: _lucamug$elm_style_elements_examples$Main$view, update: _lucamug$elm_style_elements_examples$Main$update})();
 
 var Elm = {};
 Elm['Main'] = Elm['Main'] || {};
 if (typeof _lucamug$elm_style_elements_examples$Main$main !== 'undefined') {
-    _lucamug$elm_style_elements_examples$Main$main(Elm['Main'], 'Main', {"types":{"unions":{},"aliases":{},"message":"number -> number"},"versions":{"elm":"0.18.0"}});
+    _lucamug$elm_style_elements_examples$Main$main(Elm['Main'], 'Main', {"types":{"unions":{"Main.Msg":{"args":[],"tags":{"Select":["String"]}}},"aliases":{},"message":"Main.Msg"},"versions":{"elm":"0.18.0"}});
 }
 
 if (typeof define === "function" && define['amd'])

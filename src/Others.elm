@@ -3,6 +3,7 @@ module Main exposing (..)
 import Color
 import Element exposing (..)
 import Element.Attributes exposing (..)
+import Element.Events exposing (..)
 import Html
 import Style exposing (..)
 import Style.Border as Border
@@ -32,6 +33,8 @@ type Styles
     | ChatChat
     | ChatMain
     | ChatH3
+    | MyGridStyle
+    | Box
 
 
 sansSerif : List Font
@@ -124,29 +127,72 @@ stylesheet =
             [ Font.typeface [ Font.font "helvetica" ] ]
         , style ChatH3
             [ Font.size 20, Font.weight 400 ]
+        , style MyGridStyle
+            [ Color.border Color.green
+            , Border.all 3
+            ]
+        , style Box
+            [ Color.border Color.red
+            , Border.all 3
+            ]
         ]
 
 
-main : Program Never number (number -> number)
+main : Program Never (Element Styles variation Msg) Msg
 main =
     Html.beginnerProgram
-        { model = 0
-        , update = (\x -> x)
+        { model = welcome
         , view = view
+        , update = update
         }
 
 
-format : List (Element.Attribute variation msg)
+type Msg
+    = Select String
+
+
+type alias Model variation msg =
+    Element Styles variation msg
+
+
+update : Msg -> Model variation Msg -> Model variation Msg
+update msg model =
+    case msg of
+        Select newView ->
+            case newView of
+                "example1" ->
+                    example1
+
+                "exampleBorders" ->
+                    exampleBorders
+
+                "exampleBackgrounds" ->
+                    exampleBackgrounds
+
+                "exampleShadows" ->
+                    exampleShadows
+
+                "exampleGrid" ->
+                    exampleGrid
+
+                "exampleChat" ->
+                    exampleChat
+
+                _ ->
+                    welcome
+
+
+format : List (Element.Attribute variation Msg)
 format =
     [ padding 20, width fill ]
 
 
-attributesMenuList : List (Element.Attribute variation msg)
+attributesMenuList : List (Element.Attribute variation Msg)
 attributesMenuList =
     []
 
 
-view : a -> Html.Html msg
+view : Model variation Msg -> Html.Html Msg
 view model =
     Element.viewport stylesheet <|
         column Main
@@ -157,42 +203,32 @@ view model =
                 , width fill
                 ]
                 [ menu
-
-                --, example2
-                , chatMain
+                , model
                 ]
             ]
 
 
-menu : Element Styles variation msg
+menu : Element Styles variation Msg
 menu =
     column Menu
         [ scrollbars, minWidth (px 180), spacing 20, padding 20 ]
-        [ el None attributesMenuList (text "Example 1")
-        , el None attributesMenuList (text "Example 2")
-        , el None attributesMenuList (text "Example 3")
-        , el None attributesMenuList (text "Example 4")
-        , el None attributesMenuList (text "Example 5")
-        , el None attributesMenuList (text "Example 6")
-        , el None attributesMenuList (text "Example 6")
-        , el None attributesMenuList (text "Example 6")
-        , el None attributesMenuList (text "Example 6")
-        , el None attributesMenuList (text "Example 6")
-        , el None attributesMenuList (text "Example 6")
-        , el None attributesMenuList (text "Example 6")
-        , el None attributesMenuList (text "Example 6")
-        , el None attributesMenuList (text "Example 6")
-        , el None attributesMenuList (text "Example 6")
-        , el None attributesMenuList (text "Example 6")
-        , el None attributesMenuList (text "Example 6")
-        , el None attributesMenuList (text "Example 6")
-        , el None attributesMenuList (text "Example 6")
-        , el None attributesMenuList (text "Example 6")
-        , el None attributesMenuList (text "Example 6")
+        [ link "#" <| el None [ onClick <| Select "welcome" ] (text "🏠")
+        , link "#" <| el None [ onClick <| Select "example1" ] (text "Row")
+        , link "#" <| el None [ onClick <| Select "exampleBorders" ] (text "Borders")
+        , link "#" <| el None [ onClick <| Select "exampleBackgrounds" ] (text "Backgrounds")
+        , link "#" <| el None [ onClick <| Select "exampleShadows" ] (text "Shadows")
+        , link "#" <| el None [ onClick <| Select "exampleGrid" ] (text "Grid")
+        , link "#" <| el None [ onClick <| Select "exampleChat" ] (text "Chat")
         ]
 
 
-example1 : Element Styles variation msg
+welcome : Element Styles variation Msg
+welcome =
+    el None [ padding 20 ] <|
+        text "Welcome"
+
+
+example1 : Element Styles variation Msg
 example1 =
     row None
         [ scrollbars, spacing 20, padding 20 ]
@@ -223,8 +259,8 @@ example1 =
         ]
 
 
-example2 : Element Styles variation msg
-example2 =
+exampleBorders : Element Styles variation Msg
+exampleBorders =
     column Main
         [ scrollbars, spacing 20, padding 20 ]
         [ el Example1 [ padding 20 ] <|
@@ -255,8 +291,68 @@ example2 =
         ]
 
 
-chatMain : Element Styles variation msg
-chatMain =
+exampleBackgrounds : Element Styles variation Msg
+exampleBackgrounds =
+    column Main
+        [ scrollbars, spacing 20, padding 20 ]
+        [ el Example4 [ padding 20 ] <|
+            text """[ Background.gradient 0 [ Background.step Color.blue, Background.step Color.green ]
+]"""
+        ]
+
+
+exampleShadows : Element Styles variation Msg
+exampleShadows =
+    column Main
+        [ scrollbars, spacing 20, padding 20 ]
+        [ el Example5 [ padding 20 ] <|
+            text """[ Shadow.glow Color.red 5
+]"""
+        ]
+
+
+exampleGrid : Element Styles variation Msg
+exampleGrid =
+    grid MyGridStyle
+        []
+        { columns = [ px 100, px 100, px 100, px 100 ]
+        , rows =
+            [ px 100
+            , px 100
+            , px 100
+            , px 100
+            ]
+        , cells =
+            [ cell
+                { start = ( 0, 0 )
+                , width = 4
+                , height = 1
+                , content = el Box [] (text "box1")
+                }
+            , cell
+                { start = ( 0, 1 )
+                , width = 1
+                , height = 2
+                , content = el Box [] (text "box2")
+                }
+            , cell
+                { start = ( 0, 3 )
+                , width = 1
+                , height = 1
+                , content = el Box [] (text "box3")
+                }
+            , cell
+                { start = ( 1, 1 )
+                , width = 3
+                , height = 3
+                , content = el Box [] (text "box4")
+                }
+            ]
+        }
+
+
+exampleChat : Element Styles variation Msg
+exampleChat =
     column Main
         [ height fill ]
         [ el ChatNavbar [ padding 20 ] (text "Navbar")
@@ -268,7 +364,7 @@ chatMain =
         ]
 
 
-chatSidebar : Element Styles variation msg
+chatSidebar : Element Styles variation Msg
 chatSidebar =
     column ChatSidebar
         [ padding 20
@@ -278,7 +374,7 @@ chatSidebar =
         [ el ChatH3 [] (text "Channels") ]
 
 
-chatInspector : Element Styles variation msg
+chatInspector : Element Styles variation Msg
 chatInspector =
     column ChatInspector
         [ padding 20
@@ -289,7 +385,7 @@ chatInspector =
         [ text "Inspector" ]
 
 
-chatBody : Element Styles variation msg
+chatBody : Element Styles variation Msg
 chatBody =
     column None
         [ alignLeft
@@ -298,7 +394,7 @@ chatBody =
         [ chatMessages, chatMessageBox ]
 
 
-chatMessages : Element Styles variation msg
+chatMessages : Element Styles variation Msg
 chatMessages =
     column
         ChatChat
@@ -309,14 +405,14 @@ chatMessages =
         (List.map chatMessage <| List.range 1 100)
 
 
-chatMessage : a -> Element Styles variation msg
+chatMessage : a -> Element Styles variation Msg
 chatMessage n =
     el None
         [ padding 10 ]
         (text <| "message" ++ toString n)
 
 
-chatMessageBox : Element Styles variation msg
+chatMessageBox : Element Styles variation Msg
 chatMessageBox =
     el ChatMessageBox
         [ height <| px 300
