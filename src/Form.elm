@@ -3,20 +3,12 @@ module Main exposing (..)
 import Color
 import Element exposing (..)
 import Element.Attributes exposing (..)
-import Element.Events
 import Element.Input as Input
 import Html
 import Style exposing (..)
-import Style.Background as Background
 import Style.Border as Border
 import Style.Color as Color
 import Style.Font as Font
-import Style.Shadow as Shadow
-import Style.Transition as Transition
-
-
-(=>) =
-    (,)
 
 
 type Styles
@@ -37,6 +29,7 @@ type Other
     = Thing Int
 
 
+options : List Option
 options =
     [ Style.unguarded
     ]
@@ -128,6 +121,17 @@ stylesheet =
         ]
 
 
+main :
+    Program Never
+        { manyLunches : List Lunch
+        , openMenu : Bool
+        , checkbox : Bool
+        , lunch : Lunch
+        , search : Input.SelectWith Lunch Msg
+        , selectMenu : Input.SelectWith Lunch Msg
+        , text : String
+        }
+        Msg
 main =
     Html.program
         { init =
@@ -158,6 +162,30 @@ type Msg
     | SelectOne (Input.SelectMsg Lunch)
 
 
+update :
+    Msg
+    ->
+        { a
+            | checkbox : Bool
+            , lunch : Lunch
+            , manyLunches : List Lunch
+            , openMenu : Bool
+            , search : Input.SelectWith Lunch msg
+            , selectMenu : Input.SelectWith Lunch msg1
+            , text : String
+        }
+    ->
+        ( { a
+            | checkbox : Bool
+            , lunch : Lunch
+            , manyLunches : List Lunch
+            , openMenu : Bool
+            , search : Input.SelectWith Lunch msg
+            , selectMenu : Input.SelectWith Lunch msg1
+            , text : String
+          }
+        , Cmd msg2
+        )
 update msg model =
     case Debug.log "action" msg of
         Log str ->
@@ -212,6 +240,15 @@ type Lunch
     | Gyro
 
 
+view :
+    { a
+        | checkbox : Bool
+        , lunch : Lunch
+        , search : Input.SelectWith Lunch Msg
+        , selectMenu : Input.SelectWith Lunch Msg
+        , text : String
+    }
+    -> Html.Html Msg
 view model =
     Element.layout stylesheet <|
         el None [ center, width (px 800) ] <|
