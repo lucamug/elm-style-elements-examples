@@ -456,6 +456,14 @@ exampleBorders =
 exampleBackgrounds : { source : Element Styles variation msg, text : String }
 exampleBackgrounds =
     { text = """
+        , style Example4
+            [ Background.gradient 0
+                [ Background.step Color.blue
+                , Background.step Color.green
+                ]
+            ]
+
+
         column Main
             [ scrollbars, spacing 20, padding 20 ]
             [ el Example4 [ padding 20 ] <|
@@ -474,6 +482,11 @@ exampleBackgrounds =
 exampleShadows : { source : Element Styles variation msg, text : String }
 exampleShadows =
     { text = """
+        , style Example5
+            [ Shadow.glow Color.red 5
+            ]
+
+
         column Main
             [ scrollbars, spacing 20, padding 20 ]
             [ el Example5 [ padding 20 ] <|
