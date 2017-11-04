@@ -24773,7 +24773,7 @@ var _lucamug$elm_style_elements_examples$Main$exampleBorders = {
 		})
 };
 var _lucamug$elm_style_elements_examples$Main$exampleBackgrounds = {
-	text: '\n        column Main\n            [ scrollbars, spacing 20, padding 20 ]\n            [ el Example4 [ padding 20 ] <|\n                text \"Background 1\"\n            ]\n        ',
+	text: '\n        , style Example4\n            [ Background.gradient 0\n                [ Background.step Color.blue\n                , Background.step Color.green\n                ]\n            ]\n\n\n        column Main\n            [ scrollbars, spacing 20, padding 20 ]\n            [ el Example4 [ padding 20 ] <|\n                text \"Background 1\"\n            ]\n        ',
 	source: A3(
 		_mdgriffith$style_elements$Element$column,
 		_lucamug$elm_style_elements_examples$Main$Main,
@@ -24805,7 +24805,7 @@ var _lucamug$elm_style_elements_examples$Main$exampleBackgrounds = {
 		})
 };
 var _lucamug$elm_style_elements_examples$Main$exampleShadows = {
-	text: '\n        column Main\n            [ scrollbars, spacing 20, padding 20 ]\n            [ el Example5 [ padding 20 ] <|\n                text \"Shadow 1\"\n            ]\n     ',
+	text: '\n        , style Example5\n            [ Shadow.glow Color.red 5\n            ]\n\n\n        column Main\n            [ scrollbars, spacing 20, padding 20 ]\n            [ el Example5 [ padding 20 ] <|\n                text \"Shadow 1\"\n            ]\n     ',
 	source: A3(
 		_mdgriffith$style_elements$Element$column,
 		_lucamug$elm_style_elements_examples$Main$Main,
