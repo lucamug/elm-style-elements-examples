@@ -25388,7 +25388,7 @@ var _lucamug$elm_style_elements_examples$Main$stylesheet = _mdgriffith$style_ele
 		}
 	});
 var _lucamug$elm_style_elements_examples$Main$welcome = {
-	text: '\n        textLayout Welcome\n            [ height fill, spacing 20, padding 20 ]\n            [ paragraph None [] <|\n                [ text \"This is a collection of examples built with \"\n                , link \"http://elm-lang.org/\" (el Clickable [] (text \"Elm\"))\n                , text \" and \"\n                , link \"http://package.elm-lang.org/packages/mdgriffith/style-elements/latest/\" (el Clickable [] (text \"mdgriffith/style-elements\"))\n                , text \". In the gray section above you can see the source that generated this view. Use the menu on the right to switch among examples. Contribute with your examples at \"\n                , link \"https://github.com/lucamug/elm-style-elements-examples\" (el Clickable [] (text \"elm-style-elements-examples\"))\n                , text \".\"\n                ]\n            , paragraph None [] <|\n                [ text \"Here you can find extra resources: \"\n                ]\n            , paragraph None [] <|\n                [ link \"https://mdgriffith.gitbooks.io/style-elements/content/\" <|\n                    el Clickable [] (text \"An Introduction to Style Elements\")\n                , text \" - Online book by Matthew Griffith\"\n                ]\n            , paragraph None [] <|\n                [ link \"https://youtube.com/\" <|\n                    el Clickable [] (text \"Rethinking Style\")\n                , text \" - Presentation at Elm Europe 2017 by Matthew Griffith\"\n                ]\n            , paragraph None [] <|\n                [ link \"https://www.dailydrip.com/topics/elm/drips/style-elements\" <|\n                    el Clickable [] (text \"Style Elements\")\n                , text \" - Tutorial at Dailydrip\"\n                ]\n            ]\n    ',
+	text: '\n        textLayout Welcome\n            [ height fill, spacing 20, padding 20 ]\n            [ paragraph None [] <|\n                [ text \"This is a collection of examples built with \"\n                , link \"http://elm-lang.org/\" (el Clickable [] (text \"Elm\"))\n                , text \" and \"\n                , link \"http://package.elm-lang.org/packages/mdgriffith/style-elements/latest/\" (el Clickable [] (text \"mdgriffith/style-elements\"))\n                , text \". In the gray section above you can see the source that generated this view. Use the menu on the right to switch among examples. Contribute with your examples at \"\n                , link \"https://github.com/lucamug/elm-style-elements-examples\" (el Clickable [] (text \"elm-style-elements-examples\"))\n                , text \".\"\n                ]\n            , paragraph None [] <|\n                [ text \"Here you can find extra resources: \"\n                ]\n            , paragraph None [] <|\n                [ link \"https://mdgriffith.gitbooks.io/style-elements/content/\" <|\n                    el Clickable [] (text \"An Introduction to Style Elements\")\n                , text \" - Online book by Matthew Griffith\"\n                ]\n            , paragraph None [] <|\n                [ link \"https://youtube.com/\" <|\n                    el Clickable [] (text \"Rethinking Style\")\n                , text \" - Presentation at Elm Europe 2017 by Matthew Griffith\"\n                ]\n            , paragraph None [] <|\n                [ link \"https://www.dailydrip.com/topics/elm/drips/style-elements\" <|\n                    el Clickable [] (text \"Style Elements\")\n                , text \" - Tutorial at Dailydrip\"\n                ]\n            , paragraph None [] <|\n                [ link \"https://github.com/lucamug/elm-style-elements-examples/blob/master/src/Examples.elm\" <|\n                    el Clickable [] (text \"Code of this page\")\n                ]\n            ]\n    ',
 	source: A3(
 		_mdgriffith$style_elements$Element$textLayout,
 		_lucamug$elm_style_elements_examples$Main$Welcome,
@@ -25538,7 +25538,26 @@ var _lucamug$elm_style_elements_examples$Main$welcome = {
 										_1: {ctor: '[]'}
 									}
 								}),
-							_1: {ctor: '[]'}
+							_1: {
+								ctor: '::',
+								_0: A3(
+									_mdgriffith$style_elements$Element$paragraph,
+									_lucamug$elm_style_elements_examples$Main$None,
+									{ctor: '[]'},
+									{
+										ctor: '::',
+										_0: A2(
+											_mdgriffith$style_elements$Element$link,
+											'https://github.com/lucamug/elm-style-elements-examples/blob/master/src/Examples.elm',
+											A3(
+												_mdgriffith$style_elements$Element$el,
+												_lucamug$elm_style_elements_examples$Main$Clickable,
+												{ctor: '[]'},
+												_mdgriffith$style_elements$Element$text('Code of this page'))),
+										_1: {ctor: '[]'}
+									}),
+								_1: {ctor: '[]'}
+							}
 						}
 					}
 				}

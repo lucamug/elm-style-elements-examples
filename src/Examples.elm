@@ -344,6 +344,10 @@ welcome =
                     el Clickable [] (text "Style Elements")
                 , text " - Tutorial at Dailydrip"
                 ]
+            , paragraph None [] <|
+                [ link "https://github.com/lucamug/elm-style-elements-examples/blob/master/src/Examples.elm" <|
+                    el Clickable [] (text "Code of this page")
+                ]
             ]
     """
     , source =
@@ -375,6 +379,10 @@ welcome =
                 [ link "https://www.dailydrip.com/topics/elm/drips/style-elements" <|
                     el Clickable [] (text "Style Elements")
                 , text " - Tutorial at Dailydrip"
+                ]
+            , paragraph None [] <|
+                [ link "https://github.com/lucamug/elm-style-elements-examples/blob/master/src/Examples.elm" <|
+                    el Clickable [] (text "Code of this page")
                 ]
             ]
     }
